@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<addon version="0.2">
+	<title xml:lang="ko">DocViewer</title>
+	<description xml:lang="ko">PDF 문서를 게시글 본문내에서 바로 출력해줍니다.</description>
+	<version>0.1.2</version>
+    <date>2012-06-20</date>
+    <author email_address="jeokcho@naver.com" link="http://xiso.co.kr">
+        <name xml:lang="ko">Xiso</name>
+    </author> 
+</addon>
