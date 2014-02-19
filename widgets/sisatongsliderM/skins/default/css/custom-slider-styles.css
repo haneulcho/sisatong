@@ -1,0 +1,41 @@
+/*--Main Image Preview--*/
+.main_image {
+	width: 100%;
+	background: #333;
+	position: relative;
+	overflow: hidden;
+	color: #fff;
+}
+
+.main_image .block_header {
+	margin: 0 0 5px; padding: 10px;
+	height: auto;
+	font-size: 20px;
+	font-weight: normal;
+}
+.main_image p {
+	padding: 10px;	margin: 0;
+	line-height: 1.6em;
+}
+.block small { 
+	padding: 0 0 0 20px; 
+	background: url(../images/icon_cal.gif) no-repeat 0 center;
+}
+.main_image .block small {margin-left: 10px;}
+.main_image .desc{
+	position: absolute;
+	bottom: 0;	left: 0;
+	width: 100%;
+	display: none;
+}
+.main_image .block{
+	width: 100%;
+	background: #111;
+	border-top: 1px solid #000;
+}
+
+.block_header {
+	margin: 0 0 5px;
+	height: 51px;
+	font-size: 13px;
+}

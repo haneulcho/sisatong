@@ -1,0 +1,44 @@
+.list_column {
+	float: left;
+	width: 360px;
+}
+.list_column img {
+	float: left;
+	width: 103px;
+}
+.list_column ul {
+	margin: 0; padding: 0;
+	list-style: none;
+}
+.list_column ul li{
+	margin: 0; padding: 10px;
+	width: 340px;
+	float: left;
+	border-bottom: 1px solid #ccc;
+}
+.list_column ul li.hover {
+	background: #ddd;
+	cursor: pointer;
+}
+.list_column ul li.active {
+	background: #fff;
+	cursor: default;
+}
+
+.block_header {
+	margin: 0 0 5px;
+	height: 51px;
+	font-size: 13px;
+}
+
+.list_column ul li .block {
+	margin-left: 115px; padding: 0;
+}
+.list_header {
+	padding: 10px;
+	text-align: center;
+	font-size: 15px;
+	background-color: #DDD;
+}
+
+.list_column ul li p{display: none;}

@@ -1,0 +1,28 @@
+<!--%import("./css/custom-list-styles.css")-->
+
+<div class="widgetContainer">
+<div class="casts_column">
+	<div class="casts_column_header">{$widget_info->title}</div>
+	<div class="casts_column_list">
+	<!--@foreach($widget_info->member_list as $key => $val)-->
+	{@
+	$oMemberModel = &getModel('member');
+	$member_info = $oMemberModel->getMemberInfoByMemberSrl($val->member_srl);
+	}
+		<div class="casts_column_entry clearfix">
+			<div class="casts_entry_profile_image">
+				<a cond="$member_info->profile_image->src" href="#" onclick="return false;" class="member_{$val->member_srl}"><img src="{$member_info->profile_image->src}" alt="{htmlspecialchars($val->nick_name)} 프로필 이미지" /></a>
+			</div>
+
+			<div class="casts_entry_info">
+				<a href="#" onclick="return false;" class="member_{$val->member_srl}"><span>{htmlspecialchars($val->nick_name)}</span>님</a>
+				<ul>
+					<li cond="$member_info->blog"><a href="{$member_info->blog}" target="_blank">└블로그</a></li>
+					<li cond="$member_info->facebook"><a href="{$member_info->facebook}" target="_blank">└페이스북</a></li>
+					<li cond="$member_info->twitter"><a href="{$member_info->twitter}" target="_blank">└트위터</a></li>
+			</div>
+		</div>
+	<!--@end-->
+	</div>
+</div>
+</div>

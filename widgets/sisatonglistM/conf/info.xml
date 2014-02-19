@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget version="0.1">
+	<title xml:lang="ko">Sisatong 리스트 (모바일)</title>
+	<description xml:lang="ko">Sisatong의 모바일 리스트 위젯입니다.</description>
+	<version>0.1A</version>
+	<date>2014-01-28</date>
+
+	<author email_address="mrrays@naver.com" link="http://krablog.com/">
+		<name xml:lang="ko">이한결</name>
+		<name xml:lang="en">Lee Han Kyeol</name>
+	</author>
+
+	<extra_vars>
+		<var id="widget_division">
+			<type>text</type>
+			<name xml:lang="ko">위젯 구분자</name>
+			<description xml:lang="ko">다른 위젯과의 충돌을 막기 위한 구분자를 입력할 수 있습니다. 각 위젯별로 영문 이름을 붙여주세요. (예:slider_bottom)</description>
+		</var>
+		<var id="order_target">
+			<type>select</type>
+			<name xml:lang="ko">정렬 대상</name>
+			<options>
+				<value>list_order</value>
+				<name xml:lang="ko">최신 등록순</name>
+			</options>
+			<options>
+				<value>update_order</value>
+				<name xml:lang="ko">최근 변경순</name>
+			</options>
+			<options>
+				<value>regdate</value>
+				<name xml:lang="ko">등록 일자순</name>
+			</options>
+			<options>
+				<value>voted_count</value>
+				<name xml:lang="ko">추천수</name>
+			</options>
+			<options>
+				<value>readed_count</value>
+				<name xml:lang="ko">조회수</name>
+			</options>
+			<options>
+				<value>rand()</value>
+				<name xml:lang="ko">랜덤순</name>
+			</options>
+		</var>
+		<var id="order_type">
+			<type>select</type>
+			<name xml:lang="ko">정렬 방법</name>
+			<description xml:lang="ko">정렬대상을 내림차순 또는 올림차순으로 정렬할 수 있습니다.</description>
+			<options>
+				<value>desc</value>
+				<name xml:lang="ko">내림차순</name>
+			</options>
+			<options>
+				<value>asc</value>
+				<name xml:lang="ko">올림차순</name>
+			</options>
+		</var>
+
+		<var id="thumbnail_width">
+			<type>text</type>
+			<name xml:lang="ko">이미지 가로크기</name>
+			<name xml:lang="jp">イメージ横幅サイズ</name>
+			<name xml:lang="zh-CN">宽度</name>
+			<name xml:lang="en">Width of Image</name>
+			<name xml:lang="vi">Độ rộng</name>
+			<name xml:lang="es">Ancho de la imagen</name>
+			<name xml:lang="ru">Ширина изображения</name>
+			<name xml:lang="zh-TW">圖片寬度</name>
+			<description xml:lang="ko">출력될 이미지의 가로크기를 정하실 수 있습니다. (기본 565)</description>
+		</var>
+		<var id="thumbnail_height">
+			<type>text</type>
+			<name xml:lang="ko">이미지 세로크기</name>
+			<description xml:lang="ko">이미지의 세로 크기를 지정할 수 있습니다. (기본 290)</description>
+		</var>
+		<var id="title">
+			<type>text</type>
+			<name xml:lang="ko">제목</name>
+			<description xml:lang="ko">제목을 정해주세요. (기본: 글 모음)</description>
+		</var>
+		<var id="subject_cut_size">
+			<type>text</type>
+			<name xml:lang="ko">제목 글자수</name>
+			<description xml:lang="ko">제목 글자수를 지정할 수 있습니다. (0또는 비워주시면 자르지 않습니다)</description>
+		</var>
+		<var id="module_srls">
+			<type>module_srl_list</type>
+			<name xml:lang="ko">대상 모듈</name>
+			<description xml:lang="ko">선택하신 모듈에 등록된 글을 대상으로 합니다.</description>
+		</var>
+	</extra_vars>
+</widget>

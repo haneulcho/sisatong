@@ -1,0 +1,43 @@
+<!--%import("./css/custom-list-styles.css")-->
+
+<div class="widgetContainer">
+<div id="article_list" class="clearfix">
+<div class="article_list clearfix" id="sisatong-list_{$widget_info->widget_division}">
+	<div class="list_header">{$widget_info->title}</div>
+	<div class="list_column">
+		<ul>
+			<!--@foreach($widget_info->sisatonglist_items as $key => $item)-->
+			<!--@if($key > 2 && $key < 7)-->
+			<!--@if($item->getThumbnail())-->
+			<li>
+				<a class="list_entry_thumbnail" href="{$item->getLink()}"><img src="{$item->getThumbnail()}" alt="{$item->getTitle()}" /></a>
+				<div class="list_entry_info">
+					<div class="list_entry_info_title"><a href="{$item->getLink()}">{$item->getShortTitle($widget_info->subject_cut_size)}</a></div>
+					<span><a href="{$item->getLink()}">{$item->getRegdate()}</a></span>
+				</div>
+			</li>
+			<!--@end-->
+			<!--@end-->
+			<!--@end-->
+		</ul>
+	</div>
+	<div class="list_column">
+		<ul>
+			<!--@foreach($widget_info->sisatonglist_items as $key => $item)-->
+			<!--@if($key > 6 && $key < 11)-->
+			<!--@if($item->getThumbnail())-->
+			<li>
+				<a class="list_entry_thumbnail" href="{$item->getLink()}"><img src="{$item->getThumbnail()}" alt="{$item->getTitle()}" /></a>
+				<div class="list_entry_info">
+					<div class="list_entry_info_title"><a href="{$item->getLink()}">{$item->getShortTitle($widget_info->subject_cut_size)}</a></div>
+					<span><a href="{$item->getLink()}">{$item->getRegdate()}</a></span>
+				</div>
+			</li>
+			<!--@end-->
+			<!--@end-->
+			<!--@end-->
+		</ul>
+	</div>
+</div>
+</div>
+</div>

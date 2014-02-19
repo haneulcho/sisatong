@@ -1,0 +1,285 @@
+<?php
+	/**
+	 * @class sisatongjournalbook
+	 * @author 이한결 (mrrays@naver.com)
+	 * @brief Sisatong 저널북을 메인화면에 출력하는 위젯
+	 **/
+
+	class sisatongjournalbook extends WidgetHandler {
+
+		/**
+		 * @brief 위젯의 실행 부분
+		 *
+		 * ./widgets/위젯/conf/info.xml 에 선언한 extra_vars를 args로 받는다
+		 * 결과를 만든후 print가 아니라 return 해주어야 한다
+		 **/
+
+		function proc($args) {
+			if (!$args->title) $args->title = '저널북';
+			if (!$args->widget_width) $args->widget_width = 200;
+			if (!$args->widget_height) $args->widget_height = 298;
+			if (!$args->thumbnail_width) $args->thumbnail_width = 184;
+			if (!$args->thumbnail_height) $args->thumbnail_height = 240;
+			if (!$args->thumbnail_type) $args->thumbnail_type = 'crop';
+			if (!$args->module_srls) $args->module_srls = NULL;
+
+			// 내부적으로 쓰이는 변수 설정
+			$oModuleModel = &getModel('module');
+			$module_srls = $args->modules_info = $args->module_srls_info = $args->mid_lists = array();
+			$site_module_info = Context::get('site_module_info');
+
+			// 대상 모듈이 선택되어 있지 않으면 해당 사이트의 전체 모듈을 대상으로 함
+			if(!$args->module_srls){
+				unset($obj);
+				$obj->site_srl = (int)$site_module_info->site_srl;
+				$output = executeQueryArray('widgets.sisatongjournalbook.getMids', $obj);
+				if($output->data) {
+					foreach($output->data as $key => $val) {
+						$args->modules_info[$val->mid] = $val;
+						$args->module_srls_info[$val->module_srl] = $val;
+						$args->mid_lists[$val->module_srl] = $val->mid;
+						$module_srls[] = $val->module_srl;
+					}
+				}
+
+				$args->modules_info = $oModuleModel->getMidList($obj);
+			// 대상 모듈이 선택되어 있으면 해당 모듈만 추출
+			} else {
+				$obj->module_srls = $args->module_srls;
+				$output = executeQueryArray('widgets.sisatongjournalbook.getMids', $obj);
+				if($output->data) {
+					foreach($output->data as $key => $val) {
+						$args->modules_info[$val->mid] = $val;
+						$args->module_srls_info[$val->module_srl] = $val;
+						$module_srls[] = $val->module_srl;
+					}
+					$idx = explode(',',$args->module_srls);
+					for($i=0,$c=count($idx);$i<$c;$i++) {
+						$srl = $idx[$i];
+						if(!$args->module_srls_info[$srl]) continue;
+						$args->mid_lists[$srl] = $args->module_srls_info[$srl]->mid;
+					}
+				}
+			}
+
+			// 아무런 모듈도 검색되지 않았다면 종료
+			if(!count($args->modules_info)) return Context::get('msg_not_founded');
+			$args->module_srl = implode(',',$module_srls);
+
+			// document 모듈의 model 객체를 받아서 결과를 객체화 시킴
+			$oDocumentModel = &getModel('document');
+
+			// 분류 구함
+			$obj->module_srl = $args->module_srl;
+			$output = executeQueryArray('widgets.sisatongjournalbook.getCategories',$obj);
+			if($output->toBool() && $output->data) {
+				foreach($output->data as $key => $val) {
+					$category_lists[$val->module_srl][$val->category_srl] = $val;
+				}
+			}
+
+			// 글 목록을 구함 (+권한 확인)
+			$obj->module_srl = $args->module_srl;
+			$obj->sort_index = 'list_order';
+			$obj->order_type = $args->order_type=="desc"?"asc":"desc";
+			$obj->list_count = 1; // 한번에 가져올 글 목록 개수
+			$pagecount = 0;
+			$needcount = 1; // 가져와야 하는 글 개수(목록 수 * 페이지 수)
+			$getcount = 0; // 가져온 글 개수
+			$content_items = array();
+			$first_thumbnail_idx = -1;
+			while(true) {
+				$pagecount = $pagecount + 1;
+				$obj->page = $pagecount;
+				$output = executeQueryArray('widgets.sisatongjournalbook.getNewestDocuments', $obj);
+				// 더이상 결과가 없으면 break
+				if(!$output->toBool() || !$output->data || !count($output->data)) break;
+				// 권한 확인해서 문서 목록 생성하기
+				foreach($output->data as $key => $attribute) {
+					$oDocument = new documentItem();
+					$oDocument->setAttribute($attribute, false);
+
+					if ($getcount >= $needcount) {
+						break;
+					} 
+
+					// 썸네일 이미지 있는지 확인
+					if (!$oDocument->getThumbnail($args->thumbnail_width,$args->thumbnail_height,$args->thumbnail_type)) continue;
+
+					// 권한이 있다면 객체화 준비
+					$GLOBALS['XE_DOCUMENT_LIST'][$oDocument->document_srl] = $oDocument;
+					$document_srls[] = $oDocument->document_srl;
+					$getcount = $getcount + 1;
+					if ($getcount >= $needcount) break;
+				}
+				if ($getcount >= $needcount) break;
+				if ($pagecount >= $output->total_page) break;
+			}
+
+			// 결과가 있으면 각 문서 객체화를 시킴
+			if($getcount > 0) {
+				$oDocumentModel->setToAllDocumentExtraVars();
+
+				for($i=0,$c=count($document_srls);$i<$c;$i++) {
+					$oDocument = $GLOBALS['XE_DOCUMENT_LIST'][$document_srls[$i]];
+					$document_srl = $oDocument->document_srl;
+					$module_srl = $oDocument->get('module_srl');
+					$category_srl = $oDocument->get('category_srl');
+					$thumbnail = $oDocument->getThumbnail($args->thumbnail_width,$args->thumbnail_height,$args->thumbnail_type);
+
+					$content_item = new sisatongjournalbookItem( $args->module_srls_info[$module_srl]->browser_title );
+					$content_item->adds($oDocument->getObjectVars());
+
+					$content_item->setTitle($oDocument->getTitle());
+					$content_item->setCategory( $category_lists[$module_srl][$category_srl]->title );
+					$content_item->setLink( getSiteUrl($domain,'','document_srl',$document_srl) );
+					$content_item->setThumbnail($thumbnail);
+					$content_item->add('mid', $args->mid_lists[$module_srl]);
+					if($first_thumbnail_idx==-1 && $thumbnail) $first_thumbnail_idx = $i;
+					$sisatongjournalbook_items[] = $content_item;
+				}
+
+				$sisatongjournalbook_items[0]->setFirstThumbnailIdx($first_thumbnail_idx);
+			}
+
+			$oTemplate = &TemplateHandler::getInstance();
+
+			// 위젯에 넘기기 위한 변수 설정
+			$widget_info->title = $args->title;
+			$widget_info->thumbnail_type = $args->thumbnail_type;
+			$widget_info->thumbnail_width = $args->thumbnail_width;
+			$widget_info->thumbnail_height = $args->thumbnail_height;
+			$widget_info->sisatongjournalbook_items = $sisatongjournalbook_items;
+
+			Context::set('colorset', $args->colorset);
+			Context::set('widget_info', $widget_info);
+
+			$tpl_path = sprintf('%sskins/%s', $this->widget_path, $args->skin);
+			Context::set('skin_path', $tpl_path);
+			$act = Context::get('act');
+			if($act == "dispPageAdminContentModify" || $act == "procWidgetGenerateCodeInPage")
+				return $oTemplate->compile($tpl_path, "editor");
+			return $oTemplate->compile($tpl_path, "list");
+		}
+	}
+
+	class sisatongjournalbookItem extends Object {
+
+		var $browser_title = null;
+		var $has_first_thumbnail_idx = false;
+		var $first_thumbnail_idx = null;
+		var $contents_link = null;
+		var $domain = null;
+
+		function coinsliderItem($browser_title=''){
+			$this->browser_title = $browser_title;
+		}
+		function setContentsLink($link){
+			$this->contents_link = $link;
+		}
+		function setFirstThumbnailIdx($first_thumbnail_idx){
+			if(is_null($this->first_thumbnail) && $first_thumbnail_idx>-1) {
+				$this->has_first_thumbnail_idx = true;
+				$this->first_thumbnail_idx= $first_thumbnail_idx;
+			}
+		}
+		function setLink($url){
+			$this->add('url',$url);
+		}
+		function setTitle($title){
+			$this->add('title',$title);
+		}
+
+		function setThumbnail($thumbnail){
+			$this->add('thumbnail',$thumbnail);
+		}
+		function setContent($content){
+			$this->add('content',$content);
+		}
+		function setRegdate($regdate){
+			$this->add('regdate',$regdate);
+		}
+		function setNickName($nick_name){
+			$this->add('nick_name',$nick_name);
+		}
+
+		// 글 작성자의 홈페이지 주소를 저장 by misol
+		function setAuthorSite($site_url){
+			$this->add('author_site',$site_url);
+		}
+		function setCategory($category){
+			$this->add('category',$category);
+		}
+		function getBrowserTitle(){
+			return $this->browser_title;
+		}
+		function getDomain() {
+			return $this->domain;
+		}
+		function getContentsLink(){
+			return $this->contents_link;
+		}
+
+		function getFirstThumbnailIdx(){
+			return $this->first_thumbnail_idx;
+		}
+
+		function getLink(){
+			return $this->get('url');
+		}
+		function getModuleSrl(){
+			return $this->get('module_srl');
+		}
+		function getTitle(){
+			return strip_tags($this->get('title'));
+		}
+		function getShortTitle($cut_size = 0, $tail='...'){
+			$title = strip_tags($this->get('title'));
+
+			if($cut_size) $title = cut_str($title, $cut_size, $tail);
+
+			$attrs = array();
+			if($this->get('title_bold') == 'Y') $attrs[] = 'font-weight:bold';
+			if($this->get('title_color') && $this->get('title_color') != 'N') $attrs[] = 'color:#'.$this->get('title_color');
+
+			if(count($attrs)) $title = sprintf("<span style=\"%s\">%s</span>", implode(';', $attrs), htmlspecialchars($title));
+
+			return $title;
+		}
+		function getContent(){
+			return $this->get('content');
+		}
+		function getCategory(){
+			return $this->get('category');
+		}
+		function getNickName(){
+			return $this->get('nick_name');
+		}
+		function getAuthorSite(){
+			return $this->get('author_site');
+		}
+		function getCommentCount(){
+			$comment_count = $this->get('comment_count');
+			return $comment_count>0 ? $comment_count : '';
+		}
+		function getTrackbackCount(){
+			$trackback_count = $this->get('trackback_count');
+			return $trackback_count>0 ? $trackback_count : '';
+		}
+		function getRegdate($format = 'Y.m.d H:i:s') {
+			return zdate($this->get('regdate'), $format);
+		}
+		function printExtraImages() {
+			return $this->get('extra_images');
+		}
+		function haveFirstThumbnail() {
+			return $this->has_first_thumbnail_idx;
+		}
+		function getThumbnail(){
+			return $this->get('thumbnail');
+		}
+		function getMemberSrl() {
+			return $this->get('member_srl');
+		}
+	}
+?>

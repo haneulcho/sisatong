@@ -1,0 +1,43 @@
+<!--%import("./js/custom-slider.js")-->
+
+<!--%import("./css/custom-slider-styles.css")-->
+
+<div class="widgetContainer">
+<div id="main" class="clearfix">
+<div id="sisatong-slider_{$widget_info->widget_division}">
+	<a href="{$widget_info->sisatongslider_items[0]->getLink()}">
+	<div class="main_image">
+		<img src="{$widget_info->sisatongslider_items[0]->getThumbnail()}" alt="{$widget_info->sisatongslider_items[0]->getTitle($widget_info->subject_cut_size)}" />
+		<div class="desc">
+			<div class="block">
+				<div class="block_header">{$widget_info->sisatongslider_items[0]->getTitle()}</div>
+				<p>{$widget_info->sisatongslider_items[0]->getContent()}</p>
+				<span>{$widget_info->sisatongslider_items[0]->getRegdate()}</span>
+			</div>
+		</div>
+	</div>
+	</a>
+	<div class="image_thumb">
+		<ul>
+		<!--@foreach($widget_info->sisatongslider_items as $key => $item)-->
+		<!--@if($item->getThumbnail())-->
+			<li>
+				<img src="{$item->getThumbnail()}" alt="{$item->getTitle()}" />
+				<div class="block">
+					<div class="block_header">{$item->getShortTitle($widget_info->subject_cut_size)}</div>
+					<span>{$item->getRegdate()}</span>
+				</div>
+				<div class="hiddenBlock hidden">
+					<div class="block_header">{$item->getTitle()}</div>
+					<p>{$item->getContent()}</p>
+					<span>{$item->getRegdate()}</span>
+				</div>
+				<a class="hidden" href="{$item->getLink()}"></a>
+			</li>
+		<!--@end-->
+		<!--@end-->
+		</ul>
+	</div>
+</div>
+</div>
+</div>
