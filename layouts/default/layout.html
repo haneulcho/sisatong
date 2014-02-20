@@ -5,7 +5,6 @@
 <load target="../../common/js/respond.min.js" targetie="lt IE 9" />
 <load target="default.layout.js" type="body" />
 <div class="container">
-	<p class="skip"><a href="#content">{$lang->skip_to_content}</a></p>
 	<header class="header">
 		<h1>
 			<a href="{geturl('')}" id="siteTitle">
@@ -15,6 +14,12 @@
 				<block cond="!$layout_info->LOGO_IMG && $layout_info->LOGO_TEXT">{$layout_info->LOGO_TEXT}</block>
 			</a>
 		</h1>
+
+		<div class="date">
+			{@ $n_date = date('Y년 m월 d일') }
+			{$n_date}
+		</div>
+
 		<div class="side">
 			<!-- UPPER BANNER -->
 			<a href="{$layout_info->BANNER_LINK_URL}" target="_blank"><img src="{$layout_info->BANNER_IMAGE_SRC}"></a>
@@ -40,6 +45,17 @@
 					</ul>
 				</li>
 			</ul>
+			
+			<!-- SEARCH -->
+			<form action="{getUrl()}" method="get" class="search">
+				<input type="hidden" name="vid" value="{$vid}" />
+				<input type="hidden" name="mid" value="{$mid}" />
+				<input type="hidden" name="act" value="IS" />
+				<input type="text" name="is_keyword" value="{$is_keyword}" required placeholder="{$lang->cmd_search}" title="{$lang->cmd_search}" />
+				<input type="submit" value="{$lang->cmd_search}" />
+			</form>
+
+			<img widget="login_info" skin="default" />
 		</nav>
 		<!-- /GNB -->
 	</header>

@@ -37,8 +37,8 @@
 		<var name="RECENT_ARTICLE_MID" type="text">
 			<title xml:lang="ko">클릭시 최신 글이 나오게 할 게시판 mid</title>
 		</var>
-		<var name="BANNER_IMAGE_SRC" type="text">
-			<title xml:lang="ko">상단 배너 그림 주소</title>
+		<var name="BANNER_IMAGE_SRC" type="image">
+			<title xml:lang="ko">상단 배너</title>
 		</var>
 		<var name="BANNER_LINK_URL" type="text">
 			<title xml:lang="ko">상단 배너 클릭시 이동할 주소</title>
