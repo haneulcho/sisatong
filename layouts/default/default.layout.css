@@ -105,3 +105,17 @@ body{margin:0}
 .body.sub .lnb li li.active>a,
 .body.sub .lnb li li>a:hover,
 .body.sub .lnb li li>a:focus{background:#f5f5f5;color:#3192d7}
+
+/* CUSTOM STYLES */
+/* HELPER */
+.clearfix:before,.clearfix:after{content:" ";display:table;}
+.clearfix:after{clear:both;}
+.hidden{display:none !important;visibility:hidden !important;}
+
+/* BODY */
+body {font-family: "돋움", dotum, Tahoma, Geneva; sans-serif}
+
+/* GNB */
+.account{float: right; margin-top: 5px;}
+.account .info .user {color: #888}
+.header .search{float: right; margin-top: 5px;margin-right: 5px;}
