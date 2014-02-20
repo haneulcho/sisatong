@@ -2,8 +2,8 @@
 <widget version="0.1">
 	<title xml:lang="ko">Sisatong 이미지 슬라이드</title>
 	<description xml:lang="ko">Sisatong의 이미지 슬라이드 위젯입니다.</description>
-	<version>0.1A</version>
-	<date>2014-01-28</date>
+	<version>1.0</version>
+	<date>2014-02-20</date>
 
 	<author email_address="mrrays@naver.com" link="http://krablog.com/">
 		<name xml:lang="ko">이한결</name>
