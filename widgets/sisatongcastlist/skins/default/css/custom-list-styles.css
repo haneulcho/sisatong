@@ -1,29 +1,44 @@
 .casts_column {
-	width: 200px;
-	border: 1px solid #d7d7d7;
+	width: 240px;
 }
 .casts_column_header {
 	padding: 10px;
-	font-size: 13px;
-	background-color: #f0f0f0;
-	border-left: 3px solid #e60007;
-	border-bottom: 1px solid #d7d7d7;
+	font-size: 16px;
+	border-top: 1px solid #efdc97;
+	border-bottom: 2px solid #efdc97;
 	font-weight: bold;
+	font-family: "나눔고딕", "NanumGothic", "AppleGothic", sans-serif;
+	margin-bottom: 5px;
 }
 .casts_column_list {
 	margin: 0px;
 	padding: 0px;
 }
 .casts_column_entry {
-	padding: 10px;
+	padding: 8px;
+	border-bottom: 1px solid #e7d9a8;
 }
+
+.even_row {
+	background-color: #f7eece;
+}
+
+.odd_row {
+	background-color: #fcf5dc;
+}
+
 .casts_entry_profile_image {
 	float: left;
+}
+.casts_entry_profile_image img {
+	width: 40px; height: 40px;
 }
 
 .casts_entry_info {
 	float: left;
-	padding: 5px 0px;
+	padding: 5px 8px;
+	color: #333;
+	font-size: 11px;
 }
 
 .casts_entry_info a {
@@ -32,8 +47,7 @@
 }
 
 .casts_entry_info span {
-	color: #de2429;
-	font-size: 16px;
+	font-size: 12px;
 	font-weight: bold;
 }
 
@@ -43,8 +57,9 @@
 
 .casts_entry_info ul li{
 	list-style: none;
+	float: left;
 }
 
-.casts_entry_info ul li a{
-	color: #666;
+.casts_entry_info ul li a:hover{
+	text-decoration: underline;
 }
