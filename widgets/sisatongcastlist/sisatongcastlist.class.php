@@ -50,13 +50,6 @@
 			$obj->list_count = $list_count;
 			$output = executeQuery('widgets.sisatongcastlist.getMemberListWithinGroup', $obj);
 
-			// sorting
-			// $sort = array();
-			// foreach ($output->data as $key => $row) {
-			// 	$sort[$key] = $row['user_name'];
-			// }
-			// array_multisort($sort, SORT_DESC, $output->data);
-
 			$widget_info->member_list = $output->data;
 			$widget_info->title = $args->title;
 			$widget_info->widget_width = $args->widget_width;

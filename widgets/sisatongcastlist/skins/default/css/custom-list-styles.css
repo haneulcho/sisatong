@@ -7,7 +7,7 @@
 	font-size: 14px;
 	font-weight: bold;
 	font-family: "나눔고딕", "NanumGothic", "AppleGothic", sans-serif;
-	border-bottom: 1px solid #d6d6d6;
+	border-bottom: 1px solid #bcbcbc;
 	background-color: #fafafa;
 }
 .casts_column_list {
@@ -38,26 +38,28 @@
 	color: #333;
 	font-size: 11px;
 }
-
 .casts_entry_info a {
 	text-decoration: none;
 	color: #333;
 }
-
 .casts_entry_info span {
 	font-size: 12px;
 	font-weight: bold;
 }
-
-.casts_entry_info ul {
-	margin: 5px 0px; padding: 0px;
+.casts_entry_info p {
+	margin-top: 3px;
 }
 
-.casts_entry_info ul li{
-	list-style: none;
-	float: left;
+.cast_entry_icon {
+	display: inline-block;
+	width: 12px;
+	height: 12px;
+	background: #fff url(../img/icon_profilelink.jpg) 0px 0px no-repeat;
+	text-indent: -9999px;
 }
-
-.casts_entry_info ul li a:hover{
-	text-decoration: underline;
+.cast_entry_icon.homepage {
+	background: #fff url(../img/icon_profilelink.jpg) 0px -26px no-repeat;
+}
+.cast_entry_icon.blog {
+	background: #fff url(../img/icon_profilelink.jpg) 0px -13px no-repeat;
 }

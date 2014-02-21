@@ -18,12 +18,11 @@
 
 			<div class="casts_entry_info">
 				<a href="#" onclick="return false;" class="member_{$val->member_srl}"><span class="member_{$val->member_srl}">{htmlspecialchars($val->nick_name)}</span></a>
-				<ul>
-					<li cond="$member_info->homepage"><a href="{$member_info->homepage}" target="_blank">홈페이지</a></li>
-					<li cond="$member_info->blog"><a href="{$member_info->blog}" target="_blank">블로그</a></li>
-					<li cond="$member_info->facebook"><a href="{$member_info->facebook}" target="_blank">페이스북</a></li>
-					<li cond="$member_info->twitter"><a href="{$member_info->twitter}" target="_blank">트위터</a></li>
-				</ul>
+				<a cond="$member_info->facebook" class="cast_entry_icon facebook" href="{$member_info->facebook}" target="_blank">페이스북</a>
+				<a cond="$member_info->blog" class="cast_entry_icon blog" href="{$member_info->blog}" target="_blank">블로그</a>
+				<a cond="$member_info->homepage" class="cast_entry_icon homepage" href="{$member_info->homepage}" target="_blank">홈페이지</a>
+				<a cond="$member_info->twitter" class="cast_entry_icon twitter" href="{$member_info->twitter}" target="_blank"></a>
+				<p>{$member_info->cast_description}</p>
 			</div>
 		</div>
 	{@
