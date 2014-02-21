@@ -1,30 +1,28 @@
 .casts_column {
-	width: 240px;
+	width: 198px;
+	border: 1px solid #d6d6d6;
 }
 .casts_column_header {
-	padding: 10px;
-	font-size: 16px;
-	border-top: 1px solid #efdc97;
-	border-bottom: 2px solid #efdc97;
+	padding: 11px;
+	font-size: 14px;
 	font-weight: bold;
 	font-family: "나눔고딕", "NanumGothic", "AppleGothic", sans-serif;
-	margin-bottom: 5px;
+	border-bottom: 1px solid #d6d6d6;
+	background-color: #fafafa;
 }
 .casts_column_list {
 	margin: 0px;
 	padding: 0px;
 }
 .casts_column_entry {
-	padding: 8px;
-	border-bottom: 1px solid #e7d9a8;
+	height: 40px;
+	padding: 7px 10px;
 }
-
-.even_row {
-	background-color: #f7eece;
+.casts_column_entry:first-child {
+	padding-top: 15px;
 }
-
-.odd_row {
-	background-color: #fcf5dc;
+.casts_column_entry:last-child {
+	padding-bottom: 15px;
 }
 
 .casts_entry_profile_image {

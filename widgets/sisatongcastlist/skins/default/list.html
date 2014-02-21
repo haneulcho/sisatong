@@ -1,5 +1,6 @@
 <!--%import("./css/custom-list-styles.css")-->
 {@ $index = 0; }
+<div class="sisatong_castlist">
 <div class="widgetContainer">
 <div class="casts_column">
 	<div class="casts_column_header">{$widget_info->title}</div>
@@ -16,7 +17,7 @@
 			</div>
 
 			<div class="casts_entry_info">
-				<a href="#" onclick="return false;" class="member_{$val->member_srl}"><span class="member_{$val->member_srl}">{htmlspecialchars($val->nick_name)}</span>님</a>
+				<a href="#" onclick="return false;" class="member_{$val->member_srl}"><span class="member_{$val->member_srl}">{htmlspecialchars($val->nick_name)}</span></a>
 				<ul>
 					<li cond="$member_info->homepage"><a href="{$member_info->homepage}" target="_blank">홈페이지</a></li>
 					<li cond="$member_info->blog"><a href="{$member_info->blog}" target="_blank">블로그</a></li>
@@ -30,5 +31,6 @@
 	}
 	<!--@end-->
 	</div>
+</div>
 </div>
 </div>
