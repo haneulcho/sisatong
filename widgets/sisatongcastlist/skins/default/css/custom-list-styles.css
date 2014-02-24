@@ -34,8 +34,8 @@
 }
 
 .casts_entry_info {
-	float: left;
-	padding: 5px 0px 0px 8px;
+	padding: 5px 0px 0px 0px;
+	margin-left: 48px;
 	color: #333;
 	font-size: 11px;
 }
@@ -49,6 +49,7 @@
 }
 .casts_entry_info p {
 	margin-top: 3px;
+	letter-spacing: -1px;
 }
 
 .cast_entry_icon {

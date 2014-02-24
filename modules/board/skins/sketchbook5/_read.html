@@ -5,7 +5,7 @@
 	if(!$mi->rd_btm_font) $mi->rd_btm_font='ngeb';
 }
 
-<div class="rd<!--@if(!$mi->rd_nav_style)--> rd_nav_style2<!--@end--><!--@if($mi->default_style=='blog')--> rd_blog {$mi->blog_style}<!--@end--> clear" style="padding:{$mi->rd_padding};" data-docSrl="{$oDocument->document_srl}" data-snsLink="{$oDocument->getPermanentUrl()}?l={$lang_type}">
+<div class="rd<!--@if(!$mi->rd_nav_style)--> rd_nav_style2<!--@end--><!--@if($mi->default_style=='blog')--> rd_blog {$mi->blog_style}<!--@end--> clear" style="padding:{$mi->rd_padding};" data-docSrl="{$oDocument->document_srl}" data-snsLink="{$oDocument->getPermanentUrl()}">
 	<!--// Header -->
 	<div class="rd_hd clear" style="<!--@if(!$mi->rd_style)-->margin:0 -15px 20px<!--@end--><!--@if($mi->rd_padding)-->;margin-left:0;margin-right:0<!--@end-->">
 		<!--// 제목 : 게시판 스타일 -->

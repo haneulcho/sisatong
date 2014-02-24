@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addon version="0.2">
+	<title>Opengraph _ Meta create</title>
+	<description>
+		Facebook의 Opengraph와 Meta태그를 생성해서 본문에 삽입하여 줍니다.
+	</description>
+	<version>0.1.2</version>
+	<date>2013-01-28</date>
+
+	<author email_address="jeokcho@naver.com" link="http://www.xiso.co.kr">
+		<name>Xiso</name>
+	</author>
+	
+	<extra_vars>
+		<var name="site_title" type="text">
+			<title xml:lang="ko">사이트 이름</title>
+			<description xml:lang="ko">웹사이트 이름을 입력합니다. 문서가 없는 페이지에서 사용됩니다.</description>
+		</var>
+		<var name="site_desc" type="text">
+			<title xml:lang="ko">간략한 소개</title>
+			<description xml:lang="ko">사이트의 간략한 설명을 입력합니다. 문서가 없는페이지에서 사용됩니다.</description>
+		</var>
+		<var name="thumbnail" type="text">
+			<title xml:lang="ko">사이트 썸네일</title>
+			<description xml:lang="ko">사이트의 썸네일의 경로를 넣어둡니다. 문서가 없거나 썸네일이 없는 문서에서 사용됩니다. XE가 설치된 폴더를 기준으로 한 상대경로 또는 절대경로 모두 입력가능합니다.</description>
+		</var>
+	</extra_vars>
+</addon>

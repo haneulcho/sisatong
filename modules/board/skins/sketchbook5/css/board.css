@@ -655,7 +655,7 @@
 .bd_zine li{position:relative;margin:0 auto;word-break:break-all;word-wrap:break-word}
 .bd_zine.zine li{clear:both;margin:0 2px;padding:16px 8px 16px 16px;*zoom:1}
 .bd_zine.zine2 li{padding-left:118px}
-.bd_zine .hx,.bd_zine .notice a{display:block;position:absolute;top:-2px;left:-2px;width:100%;height:100%;border:2px solid transparent;background-image:url(../img/blank.gif);text-decoration:none}
+.bd_zine .hx,.bd_zine .notice a{display:block;position:absolute;top:-2px;left:-2px;width:100%;height:100%;border-left:3px solid transparent;background-image:url(../img/blank.gif);text-decoration:none}
 .bd_zine .big_date{float:left;margin-left:-90px;text-align:center;white-space:nowrap}
 .bd_zine .dd{font:bold 42px/48px Tahoma;letter-spacing:-2px}
 .bd_zine .mmyy{font:bold 14px/22px Tahoma;letter-spacing:-1px;color:#777}
