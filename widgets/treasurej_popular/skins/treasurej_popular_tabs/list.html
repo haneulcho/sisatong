@@ -1,0 +1,123 @@
+<load target="css/treasurej_popular.css" />
+
+{@$tabc=count($widget_info->tab_view_arr); $optc=count($widget_info->option_view_arr)}
+
+<style type="text/css">
+.tabs_items,.tabs_inner{width:{$widget_info->widget_widths}px}
+.tabs_items li{width:{$widget_info->widget_widths/$tabc}px}
+.tabs_thumb .noimg{width:{$widget_info->thumbnail_width}px; height:{$widget_info->thumbnail_height}px}
+</style>
+
+{@$popsid++}
+<!--// TAB Start -->
+<div id="tabs_items{$popsid}" class="tabs_items newClear">
+	<ul>
+		<block loop="$i=0; $i<$tabc; $i++">
+			<!--@if($widget_info->tab_view_arr[$i]=='popular')-->
+				<li><a id="pd_link{$popsid}" class="tabs_active"|cond="$widget_info->tab_view_arr[0]=='popular'" href="#">{$lang->ip_popular_documents}</a></li>
+			<!--@elseif($widget_info->tab_view_arr[$i]=='newestd')-->
+				<li><a id="nd_link{$popsid}" class="tabs_active"|cond="$widget_info->tab_view_arr[0]=='newestd'" href="#">{$lang->ip_newest_documents}</a></li>
+			<!--@elseif($widget_info->tab_view_arr[$i]=='newestc')-->
+				<li><a id="nc_link{$popsid}" class="tabs_active"|cond="$widget_info->tab_view_arr[0]=='newestc'" href="#">{$lang->ip_newest_comments}</a></li>
+			<!--@end-->
+		</block>
+	</ul>
+</div>
+<!--// TAB End -->
+
+<div id="tabs_inner{$popsid}" class="tabs_inner newClear">
+
+	<!--// Popular Documents Start -->
+	<div id="pd{$popsid}" class="tabs_content<!--@if($widget_info->tab_view_arr[0]=='popular')--> tabs_active<!--@endif-->">
+		<ul cond="$widget_info->popular_documents">
+			<li loop="$widget_info->popular_documents=>$key,$val" class="newClear">
+				<a href="{$val->getPermanentUrl()}">
+					<block loop="$i=0; $i<$optc; $i++">
+					<!--@if($widget_info->option_view_arr[$i]=='image')-->
+						<p class="tabs_thumb">
+							<!--@if($val->getThumbnail())--><img src="{$val->getThumbnail($widget_info->thumbnail_width,$widget_info->thumbnail_height,crop)}" border="0" alt="" /><!--@else--><span class="noimg"><span class="noimgtext">No Image</span></span><!--@endif-->
+						</p>
+					<!--@elseif($widget_info->option_view_arr[$i]=='title')-->
+						<p class="text_title">{$val->getTitle($widget_info->subject_cut_size)}</p>
+					<!--@elseif($widget_info->option_view_arr[$i]=='content')-->
+						<p class="text_content">{$val->getSummary($widget_info->content_cut_size)}</p>
+					<!--@elseif($widget_info->option_view_arr[$i]=='regdate')-->
+						<p class="text_date">{$val->getRegdate("Y-m-d")}</p>
+					<!--@endif-->
+					</block>
+				</a>
+			</li>
+		</ul>
+	</div>
+	<!--// Popular Documents End -->
+	
+	<!--// Newest Documents Start -->
+	<div id="nd{$popsid}" class="tabs_content<!--@if($widget_info->tab_view_arr[0]=='newestd')--> tabs_active<!--@endif-->">
+		<ul>
+			<li loop="$widget_info->newest_documents=>$key,$val" class="newClear">
+				<a href="{$val->getPermanentUrl()}">
+					<block loop="$i=0; $i<$optc; $i++">
+					<!--@if($widget_info->option_view_arr[$i]=='image')-->
+						<p class="tabs_thumb">
+							<!--@if($val->getThumbnail())--><img src="{$val->getThumbnail($widget_info->thumbnail_width,$widget_info->thumbnail_height,crop)}" border="0" alt="" /><!--@else--><span class="noimg"><span class="noimgtext">No Image</span></span><!--@end-->
+						</p>
+					<!--@elseif($widget_info->option_view_arr[$i]=='title')-->
+						<p class="text_title">{$val->getTitle($widget_info->subject_cut_size)}</p>
+					<!--@elseif($widget_info->option_view_arr[$i]=='content')-->
+						<p class="text_content">{$val->getSummary($widget_info->content_cut_size)}</p>
+					<!--@elseif($widget_info->option_view_arr[$i]=='regdate')-->
+						<p class="text_date">{$val->getRegdate("Y-m-d")}</p>
+					<!--@endif-->
+					</block>
+				</a>
+			</li>
+		</ul>
+	</div>
+	<!--// Newest Documents End -->
+	
+	<!--// Newest Comments Start -->
+	<div id="nc{$popsid}" class="tabs_content<!--@if($widget_info->tab_view_arr[0]=='newestc')--> tabs_active<!--@endif-->">
+		<ul>
+			<li loop="$widget_info->newest_comments=>$key,$val" class="newClear">
+				<a href="{$val->getPermanentUrl()}">
+					<p class="tabs_text">
+						<span class="text_content2">{$val->getSummary($widget_info->comment_cut_size)}</span>
+						<span class="text_date2">&nbsp;&nbsp;{$val->getRegdate("Y-m-d")}</span>
+					</p>
+				</a>
+			</li>
+		</ul>
+	</div>
+	<!--// Newest Comments End -->
+	
+</div>
+
+<script type="text/javascript">
+jQuery(function($){
+	var $tabs_items = $('#tabs_items{$popsid}'),
+		$tabs_itema = $tabs_items.find('a');
+	$tabs_itema.on('mouseover click',function(){
+		$tabs_itema.removeClass('tabs_active');
+		$(this).addClass('tabs_active');
+		return false;
+	});
+
+
+	var $tabs_inner = $('#tabs_inner{$popsid}');
+	$('#pd_link{$popsid}').on('mouseover click',function(){
+		$tabs_inner.find('.tabs_active').removeClass('tabs_active');
+		$("#pd{$popsid}").addClass('tabs_active');
+		return false;
+	});
+	$('#nd_link{$popsid}').on('mouseover click',function(){
+		$tabs_inner.find('.tabs_active').removeClass('tabs_active');
+		$("#nd{$popsid}").addClass('tabs_active');
+		return false;
+	});
+	$('#nc_link{$popsid}').on('mouseover click',function(){
+		$tabs_inner.find('.tabs_active').removeClass('tabs_active');
+		$("#nc{$popsid}").addClass('tabs_active');
+		return false;
+	});
+});
+</script>
