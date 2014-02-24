@@ -43,9 +43,6 @@
 	color: #ed6770;
 }
 
-.block_header {
-}
-
 .image_thumb {
 	float: left;
 	width: 147px;
@@ -64,7 +61,6 @@
 	position: relative;
 }
 .image_thumb ul li img{
-	float: left;
 	max-width: none;
 	max-height: 100%;
 }
@@ -80,7 +76,6 @@
 }
 
 .image_thumb ul li .block {
-	float: left; 
 	margin: 0;
 	position: absolute;
 	top: 75px;

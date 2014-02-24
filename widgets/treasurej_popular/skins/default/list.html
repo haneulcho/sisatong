@@ -9,6 +9,7 @@
 </style>
 
 {@$popsid++}
+<div id="latestlist">
 <!--// TAB Start -->
 <div id="tabs_items{$popsid}" class="tabs_items newClear">
 	<ul>
@@ -38,7 +39,12 @@
 							<!--@if($val->getThumbnail())--><img src="{$val->getThumbnail($widget_info->thumbnail_width,$widget_info->thumbnail_height,crop)}" border="0" alt="" /><!--@else--><span class="noimg"><span class="noimgtext">No Image</span></span><!--@endif-->
 						</p>
 					<!--@elseif($widget_info->option_view_arr[$i]=='title')-->
-						<p class="text_title">{$val->getTitle($widget_info->subject_cut_size)}</p>
+						<!--@if($key < 3)-->
+						<span class="numtop{$key+1}">{$key+1}</span>
+						<!--@elseif($key > 2)-->
+						<span class="num{$key+1}">{$key+1}</span>
+						<!--@endif-->
+						{$val->getTitle($widget_info->subject_cut_size)}
 					<!--@elseif($widget_info->option_view_arr[$i]=='content')-->
 						<p class="text_content">{$val->getSummary($widget_info->content_cut_size)}</p>
 					<!--@elseif($widget_info->option_view_arr[$i]=='regdate')-->
@@ -62,7 +68,12 @@
 							<!--@if($val->getThumbnail())--><img src="{$val->getThumbnail($widget_info->thumbnail_width,$widget_info->thumbnail_height,crop)}" border="0" alt="" /><!--@else--><span class="noimg"><span class="noimgtext">No Image</span></span><!--@end-->
 						</p>
 					<!--@elseif($widget_info->option_view_arr[$i]=='title')-->
-						<p class="text_title">{$val->getTitle($widget_info->subject_cut_size)}</p>
+						<!--@if($key < 3)-->
+						<span class="numtop{$key+1}">{$key+1}</span>
+						<!--@elseif($key > 2)-->
+						<span class="num{$key+1}">{$key+1}</span>
+						<!--@endif-->
+						{$val->getTitle($widget_info->subject_cut_size)}
 					<!--@elseif($widget_info->option_view_arr[$i]=='content')-->
 						<p class="text_content">{$val->getSummary($widget_info->content_cut_size)}</p>
 					<!--@elseif($widget_info->option_view_arr[$i]=='regdate')-->
@@ -81,8 +92,12 @@
 			<li loop="$widget_info->newest_comments=>$key,$val" class="newClear">
 				<a href="{$val->getPermanentUrl()}">
 					<p class="tabs_text">
+						<!--@if($key < 3)-->
+						<span class="numtop{$key+1}">{$key+1}</span>
+						<!--@elseif($key > 2)-->
+						<span class="num{$key+1}">{$key+1}</span>
+						<!--@endif-->
 						<span class="text_content2">{$val->getSummary($widget_info->comment_cut_size)}</span>
-						<span class="text_date2">&nbsp;&nbsp;{$val->getRegdate("Y-m-d")}</span>
 					</p>
 				</a>
 			</li>
@@ -90,6 +105,7 @@
 	</div>
 	<!--// Newest Comments End -->
 	
+</div>
 </div>
 
 <script type="text/javascript">

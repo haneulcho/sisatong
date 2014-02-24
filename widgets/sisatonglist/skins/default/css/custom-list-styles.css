@@ -1,13 +1,13 @@
 .article_list {width:746px; border:1px solid #d6d6d6; display:table;}
 .list_header {padding:12px 15px; font-size:13px; background-color:#fafafa; border-bottom:1px solid #bcbcbc; font-weight:bold; font-family: "나눔고딕", "NanumGothic", "AppleGothic", sans-serif;}
 .list_header, .list_entry_info_title a:hover {color:#e91926;}
-.list_column {float:left; width:50%; height:451px;}
+.list_column {float:left; width:50%; height:455px;}
 .list_column ul.last {border-right:none;}
 .list_column ul {margin:0; padding:0; list-style:none; border-right:1px solid #d6d6d6;}
 .list_column ul li {margin:0; padding:16px 18px; border-bottom:1px solid #d6d6d6;}
 .list_column ul li:hover {background-color:#fafafa;}
 .list_column ul li a {text-decoration:none;}
-.list_entry_thumbnail {float:right; margin-left:15px;}
+.list_entry_thumbnail {float:right; margin-left:15px; width:122px; height:82px; display:block;}
 .list_column img {width:120px; height:80px; border:1px solid #eee;}
 .list_entry_info {padding:0; margin:4px 135px 2px 0;}
 .list_entry_info_title, .list_entry_info_summary {overflow:hidden;}
