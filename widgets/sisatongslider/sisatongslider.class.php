@@ -25,19 +25,14 @@
 			$args->list_count = (int)$args->list_count;
 			if(!$args->list_count) $args->list_count = 3;
 
-			// 제목 길이 자르기
-			if(!$args->subject_cut_size) $args->subject_cut_size = 50;
-
-			// 내용 길이 자르기
-			if(!$args->content_cut_size) $args->content_cut_size = 100;
+			if(!$args->main_subject_cut_size) $args->main_subject_cut_size = 50;
+			if(!$args->sub_subject_cut_size) $args->sub_subject_cut_size = 30;
 
 			// 썸네일 생성 방법
 			if(!$args->thumbnail_type) $args->thumbnail_type = 'crop';
 
-			// 썸네일 가로 크기
-			if(!$args->thumbnail_width) $args->thumbnail_width = 450;
-
-			// 썸네일 세로 크기
+			// 큰 썸네일 크기
+			if(!$args->thumbnail_width) $args->thumbnail_width = 598;
 			if(!$args->thumbnail_height) $args->thumbnail_height = 298;
 
 			// 내부적으로 쓰이는 변수 설정
@@ -169,7 +164,8 @@
 			$widget_info->modules_info = $args->modules_info;
 			$widget_info->option_view_arr = $args->option_view_arr;
 			$widget_info->list_count = $args->list_count;
-			$widget_info->subject_cut_size = $args->subject_cut_size;
+			$widget_info->main_subject_cut_size = $args->main_subject_cut_size;
+			$widget_info->sub_subject_cut_size = $args->sub_subject_cut_size;
 
 			$widget_info->thumbnail_type = $args->thumbnail_type;
 			$widget_info->thumbnail_width = $args->thumbnail_width;
@@ -289,8 +285,9 @@
 		function getTitle(){
 			return strip_tags($this->get('title'));
 		}
-		function getShortTitle($cut_size = 0, $tail='...'){
+		function getShortTitle($cut_size){
 			$title = strip_tags($this->get('title'));
+			$tail='...';
 
 			if($cut_size) $title = cut_str($title, $cut_size, $tail);
 
@@ -316,13 +313,13 @@
 		}
 		function getCommentCount(){
 			$comment_count = $this->get('comment_count');
-			return $comment_count>0 ? $comment_count : '';
+			return $comment_count>0 ? $comment_count : '0';
 		}
 		function getTrackbackCount(){
 			$trackback_count = $this->get('trackback_count');
 			return $trackback_count>0 ? $trackback_count : '';
 		}
-		function getRegdate($format = 'Y.m.d H:i:s') {
+		function getRegdate($format = 'Y.m.d') {
 			return zdate($this->get('regdate'), $format);
 		}
 		function printExtraImages() {

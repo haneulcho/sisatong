@@ -8,14 +8,14 @@ $(document).ready(function() {
 	// intervalID = setInterval(cycleImage, slidetime);
 
 	$(".main_image .desc").show(); // Show Banner
-	$(".main_image .block").animate({ opacity: 0.85 }, 1 ); // Set Opacity
+	$(".main_image .block").animate({ opacity: 0.65 }, 1 ); // Set Opacity
 
 	// Click and Hover events for thumbnail list
 	$(".image_thumb ul li:first").addClass('active'); 
 	$(".image_thumb ul li").click(function(){ 
 		// Set Variables
 		var imgAlt = $(this).find('img').attr("alt"); //  Get Alt Tag of Image
-		var imgTitle = $(this).find('img').attr("src"); // Get Main Image URL
+		var imgTitle = $(this).find('.hiddenImage').data('src'); // Get Main Image URL
 		var imgDesc = $(this).find('.hiddenBlock').html(); 	//  Get HTML of block
 		var imgDescHeight = $(".main_image").find('.block').height();	// Calculate height of block
 		var imgHref = $(this).find('a').attr("href"); // Get item url
@@ -65,12 +65,12 @@ $(document).ready(function() {
 	
 	// Duplicate code for animation
 	var imgAlt = $(nextImage).find('img').attr("alt");
-	var imgTitle = $(nextImage).find('img').attr("src");
+	var imgTitle = $(nextImage).find('.hiddenImage').data('src');;
 	var imgDesc = $(nextImage).find('.block').html();
 	var imgDescHeight = $(".main_image").find('.block').height();
 	var imgHref = $(nextImage).find('a').attr("href");
 	$(".main_image .block").animate({ opacity: 0, marginBottom: -imgDescHeight }, 250 , function() {
-		$(".main_image .block").html(imgDesc).animate({ opacity: 0.85,	marginBottom: "0" }, 250 );
+		$(".main_image .block").html(imgDesc).animate({ opacity: 0.65,	marginBottom: "0" }, 250 );
 		$(".main_image img").attr({ src: imgTitle , alt: imgAlt});
 		$(".main_image img").parents('a').attr({ href: imgHref });
 		});

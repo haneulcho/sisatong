@@ -1,25 +1,28 @@
 /*--Main Image Preview--*/
+#main {
+	border: 1px solid #222;
+}
+
 .main_image {
-	width: 450px; height: 301px;
+	width: 598px; height: 300px;
 	float: left;
 	background: #333;
 	position: relative;
 	overflow: hidden;
 	color: #fff;
+	border-right: 1px solid #222;
 }
 
 .main_image .block_header {
-	margin: 0px; padding: 10px;
+	margin: 0px; padding: 20px;
 	height: auto;
-	font-size: 20px;
+	font-size: 18px;
 	font-weight: bold;
-	border-left: 6px solid #e60007;
 }
 .main_image p {
 	padding: 10px;	margin: 0;
 	line-height: 1.6em;
 }
-
 .main_image .desc{
 	position: absolute;
 	bottom: 0;	left: 0;
@@ -27,39 +30,43 @@
 	display: none;
 }
 .main_image .block{
-	width: 100%;
-	background: #111;
+	background: #000;
+}
+.main_image .item_date {
+	font-size: 11px;
+	font-weight: normal;
+	color: #888;
+}
+.main_image .item_comment_count {
+	font-size: 11px;
+	font-weight: normal;
+	color: #ed6770;
 }
 
 .block_header {
-	margin: 0 0 5px;
-	height: 51px;
-	font-size: 13px;
 }
 
 .image_thumb {
 	float: left;
-	width: 297px;
-	background: #222;
+	width: 147px;
 	color: #fff;
-	border-top: 1px solid #373737;
-}
-.image_thumb img {
-	width: 117px;
+	overflow: hidden;
 }
 .image_thumb ul {
 	margin: 0; padding: 0;
 	list-style: none;
 }
 .image_thumb ul li{
-	margin: 0; padding: 10px;
-	width: 279px;
-	height: 79px;
+	margin: 0; padding: 0;
+	height: 99px;
 	float: left;
-	border-bottom: 1px solid #373737;
+	border-bottom: 1px solid #222;
+	position: relative;
 }
 .image_thumb ul li img{
 	float: left;
+	max-width: none;
+	max-height: 100%;
 }
 .image_thumb ul li.hover {
 	background: #282828;
@@ -67,13 +74,21 @@
 }
 .image_thumb ul li.active {
 	cursor: default;
-	border-left: 3px solid #e60007;
+}
+.image_thumb ul li.hover .block, .image_thumb ul li.active .block {
+	background-color: #e30000;
 }
 
 .image_thumb ul li .block {
 	float: left; 
-	margin-left: 10px; padding: 0;
-	width: 152px;
+	margin: 0;
+	position: absolute;
+	top: 75px;
+	padding: 6px;
+	background-color: #000;
+	font-size: 11px;
+	opacity: 0.75;
+	width: 135px;
 }	
 
 .image_thumb ul li .block span {
