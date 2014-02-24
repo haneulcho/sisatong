@@ -3,20 +3,21 @@
 	border: 1px solid #d6d6d6;
 }
 .casts_column_header {
-	padding: 11px;
-	font-size: 14px;
+	padding: 12px 15px;
+	font-size: 13px;
+	background-color: #fafafa;
+	border-bottom: 1px solid #bcbcbc;
 	font-weight: bold;
 	font-family: "나눔고딕", "NanumGothic", "AppleGothic", sans-serif;
-	border-bottom: 1px solid #bcbcbc;
-	background-color: #fafafa;
-}
+	color: #e91926;}
+
 .casts_column_list {
 	margin: 0px;
 	padding: 0px;
 }
 .casts_column_entry {
 	height: 40px;
-	padding: 7px 10px;
+	padding: 7px 16px;
 }
 .casts_column_entry:first-child {
 	padding-top: 15px;
