@@ -102,6 +102,7 @@
 .small_lst_btn.select_lst_cloud .bd_hd{padding-right:105px}
 /* Breadcrumb */
 .bd_bc{font-size:11px;color:#999}
+.bd_bc.fl {margin:10px 0 0 15px;}
 .bd_bc a{display:inline-block;padding:0 4px;color:#444}
 .bd_bc em{font-weight:bold}
 /* Setting */
