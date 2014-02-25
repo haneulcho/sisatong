@@ -474,14 +474,16 @@ function bdCmtPn(bd){
 		var rdSnsPost = $(this).parents('.rd').find('.rd_hd h1').text();
 		var rdSnsLink = $(this).parents('.rd').attr('data-snsLink');
 		opts = $.extend({}, {type:'twitter', event:'click'}, opts);
+		var rdSnsTitle = "시사통 | "; // 고정으로 출력하고 싶은 제목 설정
+		opts.title = encodeURIComponent(rdSnsTitle); // 한글 깨짐 방지
 		opts.content = encodeURIComponent(rdSnsPost);
 		switch(opts.type) {
 			case 'facebook':
-				loc = 'http://www.facebook.com/share.php?t='+opts.content+'&u='+encodeURIComponent(rdSnsLink);
+				loc = 'http://www.facebook.com/share.php?t='+opts.title+opts.content+'&u='+encodeURIComponent(rdSnsLink);
 				break;
 			case 'twitter':
 			default:
-				loc = 'http://twitter.com/home?status='+opts.content+' '+rdSnsLink;
+				loc = 'http://twitter.com/home?status='+opts.title+opts.content+' '+rdSnsLink;
 				break;
 		}
 		this.bind(opts.event, function(){

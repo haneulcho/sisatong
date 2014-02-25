@@ -14,6 +14,7 @@
 .bd hr.clear{margin:0;border:0;*border:1px solid transparent;*margin:-.8em 0}
 .blind{overflow:hidden;position:absolute;top:0;left:0;width:0;height:0;padding:0;font-size:0;line-height:0}
 .bd_tb{width:100%;border:0;border-spacing:0;*border-collapse:collapse}
+.bd .bolder{color: #444;}
 
 /* Common */
 /* Button, Form, Select, Textarea */
@@ -653,18 +654,18 @@
 
 /* Webzine */
 .bd_zine li{position:relative;margin:0 auto;word-break:break-all;word-wrap:break-word}
-.bd_zine.zine li{clear:both;margin:0 2px;padding:16px 8px 16px 16px;*zoom:1}
+.bd_zine.zine li{clear:both; margin:0 2px; padding:12px 8px 12px 16px;}
 .bd_zine.zine2 li{padding-left:118px}
-.bd_zine .hx,.bd_zine .notice a{display:block;position:absolute;top:-2px;left:-2px;width:100%;height:100%;border:2px solid transparent;background-image:url(../img/blank.gif);text-decoration:none}
-.bd_zine .big_date{float:left;margin-left:-90px;text-align:center;white-space:nowrap}
-.bd_zine .dd{font:bold 42px/48px Tahoma;letter-spacing:-2px}
+.bd_zine .hx,.bd_zine .notice a{display:block;position:absolute;top:-2px;left:-2px;width:100%;height:100%;border-left:3px solid transparent;background-image:url(../img/blank.gif);text-decoration:none}
+.bd_zine .big_date{float:left; border-right:1px solid #eee; padding-right:20px; margin-left:-90px; text-align:center; white-space:nowrap;}
+.bd_zine .dd{font:bold 24px/26px Tahoma; margin-bottom:4px; letter-spacing:-2px;}
 .bd_zine .mmyy{font:bold 14px/22px Tahoma;letter-spacing:-1px;color:#777}
 .bd_zine .yy{font-weight:normal}
 .bd_zine .hh{letter-spacing:-1px;color:#888}
 .bd_zine .tmb_wrp{text-align:center;-ms-transition:all .4s;-moz-transition:all .4s;-webkit-transition:all .4s;transition:all .4s}
 .bd_zine.zine .tmb_wrp{float:left}
 .bd_zine.zine .tmb_wrp img,.bd_zine .no_img{border:1px solid #DDD}
-.bd_zine h3{margin:0;font-size:15px;letter-spacing:-1px;color:#444;text-shadow:0 1px 0 #F9F3C9}
+.bd_zine h3{display:inline-block; margin:0; font-size:15px; letter-spacing:-1px; color:#444;}
 .bd_zine .cnt{margin-top:8px;font-size:11px}
 .bd_zine .info{color:#888}
 .bd_zine .info b{padding-left:4px;color:#666}
@@ -679,6 +680,8 @@
 .bd_zine.card .cnt{margin-top:1em}
 .bd_zine.card .info{margin-top:.8em;font-size:10px;line-height:1.4}
 .bd_zine.card .info b{padding:0 4px 0 3px;font-weight:normal}
+
+.bd_zine .rt_area .hh{display:inline-block; letter-spacing:-1px; line-height:11px; color:#888; margin-left:6px; padding-left:8px; vertical-align:2px; border-left:1px solid #ddd;}
 
 /* Gallery */
 .bd_tmb_lst{padding:24px 0;text-align:center}

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget version="0.1">
+	<title xml:lang="ko">Sisatong 이미지 박스</title>
+	<description xml:lang="ko">Sisatong의 이미지 박스 위젯입니다.</description>
+	<version>0.1A</version>
+	<date>2014-02-19</date>
+
+	<author email_address="mrrays@naver.com" link="http://krablog.com/">
+		<name xml:lang="ko">이한결</name>
+		<name xml:lang="en">Lee Han Kyeol</name>
+	</author>
+
+	<extra_vars>
+		<var id="thumbnail_url">
+			<type>text</type>
+			<name xml:lang="ko">썸네일 주소</name>
+			<description xml:lang="ko">썸네일 주소를 입력하세요.</description>
+		</var>
+		<var id="thumbnail_link_url">
+			<type>text</type>
+			<name xml:lang="ko">썸네일 링크 주소</name>
+			<description xml:lang="ko">썸네일을 클릭했을 때 이동할 주소를 입력하세요.</description>
+		</var>
+		<var id="thumbnail_width">
+			<type>text</type>
+			<name xml:lang="ko">썸네일 가로 크기</name>
+			<description xml:lang="ko">썸네일 가로 크기를 픽셀 단위로 정하세요.</description>
+		</var>
+		<var id="thumbnail_height">
+			<type>text</type>
+			<name xml:lang="ko">썸네일 세로 크기</name>
+			<description xml:lang="ko">썸네일 세로 크기를 픽셀 단위로 정하세요.</description>
+		</var>
+	</extra_vars>
+</widget>

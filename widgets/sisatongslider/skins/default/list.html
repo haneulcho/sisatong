@@ -1,5 +1,4 @@
 <!--%import("./js/custom-slider.js")-->
-
 <!--%import("./css/custom-slider-styles.css")-->
 
 <div class="widgetContainer">
@@ -7,12 +6,13 @@
 <div id="sisatong-slider_{$widget_info->widget_division}">
 	<a href="{$widget_info->sisatongslider_items[0]->getLink()}">
 	<div class="main_image">
-		<img src="{$widget_info->sisatongslider_items[0]->getThumbnail()}" alt="{$widget_info->sisatongslider_items[0]->getTitle($widget_info->subject_cut_size)}" />
+		<img src="{$widget_info->sisatongslider_items[0]->getThumbnail()}" alt="{$widget_info->sisatongslider_items[0]->getTitle()}" />
 		<div class="desc">
 			<div class="block">
-				<div class="block_header">{$widget_info->sisatongslider_items[0]->getTitle()}</div>
-				<p>{$widget_info->sisatongslider_items[0]->getContent()}</p>
-				<span>{$widget_info->sisatongslider_items[0]->getRegdate()}</span>
+				<div class="block_header">{$widget_info->sisatongslider_items[0]->getShortTitle($widget_info->main_subject_cut_size)}
+					<span class="item_date">{$widget_info->sisatongslider_items[0]->getRegdate()} | </span>
+					<span class="item_comment_count">댓글 {$widget_info->sisatongslider_items[0]->getCommentCount()}개</span>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -20,21 +20,28 @@
 	<div class="image_thumb">
 		<ul>
 		<!--@foreach($widget_info->sisatongslider_items as $key => $item)-->
-		<!--@if($item->getThumbnail())-->
 			<li>
+				<!--@if($item->getThumbnail())-->
 				<img src="{$item->getThumbnail()}" alt="{$item->getTitle()}" />
+				<!--@else-->
+				<img src="{$widget_info->no_image}" alt="{$item->getTitle()}" />
+				<!--@end-->
 				<div class="block">
-					<div class="block_header">{$item->getShortTitle($widget_info->subject_cut_size)}</div>
-					<span>{$item->getRegdate()}</span>
+					<div class="block_header">{$item->getShortTitle($widget_info->sub_subject_cut_size)}</div>
 				</div>
 				<div class="hiddenBlock hidden">
-					<div class="block_header">{$item->getTitle()}</div>
-					<p>{$item->getContent()}</p>
-					<span>{$item->getRegdate()}</span>
+					<div class="block_header">{$item->getShortTitle($widget_info->main_subject_cut_size)}
+						<span class="item_date">{$item->getRegdate()} | </span>
+						<span class="item_comment_count">댓글 {$item->getCommentCount()}개</span>
+					</div>
 				</div>
+				<!--@if($item->getThumbnail())-->
+				<div class="hiddenImage hidden" data-src="{$item->getThumbnail()}"></div>
+				<!--@else-->
+				<div class="hiddenImage hidden" data-src="{$widget_info->no_image}"></div>
+				<!--@end-->
 				<a class="hidden" href="{$item->getLink()}"></a>
 			</li>
-		<!--@end-->
 		<!--@end-->
 		</ul>
 	</div>

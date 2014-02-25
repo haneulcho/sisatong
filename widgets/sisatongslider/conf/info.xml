@@ -2,8 +2,8 @@
 <widget version="0.1">
 	<title xml:lang="ko">Sisatong 이미지 슬라이드</title>
 	<description xml:lang="ko">Sisatong의 이미지 슬라이드 위젯입니다.</description>
-	<version>0.1A</version>
-	<date>2014-01-28</date>
+	<version>1.0</version>
+	<date>2014-02-20</date>
 
 	<author email_address="mrrays@naver.com" link="http://krablog.com/">
 		<name xml:lang="ko">이한결</name>
@@ -20,6 +20,31 @@
 			<type>module_srl_list</type>
 			<name xml:lang="ko">대상 모듈</name>
 			<description xml:lang="ko">선택하신 모듈에 등록된 글을 대상으로 합니다.</description>
+		</var>
+		<var id="main_subject_cut_size">
+			<type>text</type>
+			<name xml:lang="ko">메인 제목 글자 제한</name>
+			<description xml:lang="ko">메인 제목 글자 수 제한을 정해주세요.</description>
+		</var>
+		<var id="sub_subject_cut_size">
+			<type>text</type>
+			<name xml:lang="ko">서브 제목 글자 제한</name>
+			<description xml:lang="ko">서브 제목 글자 수 제한을 정해주세요.</description>
+		</var>
+		<var id="thumbnail_width">
+			<type>text</type>
+			<name xml:lang="ko">큰 썸네일 가로</name>
+			<description xml:lang="ko">큰 썸네일 가로 크기를 정해주세요.</description>
+		</var>
+		<var id="thumbnail_height">
+			<type>text</type>
+			<name xml:lang="ko">큰 썸네일 세로</name>
+			<description xml:lang="ko">큰 썸네일 세로 크기를 정해주세요.</description>
+		</var>
+		<var id="no_image">
+			<type>text</type>
+			<name xml:lang="ko">no image 경로</name>
+			<description xml:lang="ko">no image 경로를 정해주세요.</description>
 		</var>
 	</extra_vars>
 </widget>

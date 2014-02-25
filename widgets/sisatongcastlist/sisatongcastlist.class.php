@@ -48,7 +48,8 @@
 
 			$obj->selected_group_srl = implode(',',$target_group);
 			$obj->list_count = $list_count;
-			$output = executeQuery('member.getMemberListWithinGroup', $obj);
+			$output = executeQuery('widgets.sisatongcastlist.getMemberListWithinGroup', $obj);
+
 			$widget_info->member_list = $output->data;
 			$widget_info->title = $args->title;
 			$widget_info->widget_width = $args->widget_width;

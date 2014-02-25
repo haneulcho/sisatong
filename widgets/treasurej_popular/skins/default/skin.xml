@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<skin version="0.2">
+	<title xml:lang="ko"Sisatong 인기글,최근글,최근댓글 위젯 스킨</title>
+	<description xml:lang="ko">탭형식으로 인기글과 최근글,최근댓글을 출력합니다.</description>
+	<version>1.0</version>
+	<date>2014-02-24</date>
+	<link>http://josky.net</link>
+	<author email_address="stuykr@naver.com" link="http://josky.net">
+		<name xml:lang="ko">Josky</name>
+	</author>
+</skin>

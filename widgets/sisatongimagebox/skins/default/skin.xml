@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<skin version="0.1">
+	<title xml:lang="ko">Sisatong 이미지 박스 기본 스킨</title>
+	<description xml:lang="ko">Sisatong 이미지 박스 기본 스킨입니다.</description>
+	<version>0.1A</version>
+	<date>2014-02-19</date>
+	<link>http://krablog.com</link>
+
+	<author email_address="mrrays@naver.com" link="http://krablog.com">
+		<name xml:lang="ko">이한결</name>
+	</author>
+
+	<colorset>
+		<color name="default">
+			<title xml:lang="ko">기본</title>
+		</color>
+	</colorset>
+</skin>
