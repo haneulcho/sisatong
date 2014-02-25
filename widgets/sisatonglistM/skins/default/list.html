@@ -2,28 +2,33 @@
 
 <div class="widgetContainer">
 <div id="article_list" class="clearfix">
+
 <div id="sisatong-list_{$widget_info->widget_division}">
+	<div class="list_header">{$widget_info->title}</div>
 	<div class="list_column">
 		<ul>
 			<!--@foreach($widget_info->sisatonglistM_items as $key => $item)-->
 			<!--@if($key > 0)-->
-			<!--@if($item->getThumbnail())-->
-			<a href="{$item->getLink()}">
 			<li>
-				<img src="{$item->getThumbnail()}" alt="{$item->getTitle()}" />
-				<div class="block">
-					<div class="block_header">{$item->getShortTitle($widget_info->subject_cut_size)}</div>
-					<small>{$item->getRegdate()}</small>
-					<p>{$item->getContent()}</p>
+				<a class="list_entry_thumbnail" href="{$item->getLink()}">
+					<!--@if($item->getThumbnail())-->
+					<img src="{$item->getThumbnail()}" alt="{$item->getTitle()}">
+					<!--@else-->
+					<img src="{$widget_info->no_image}" alt="{$item->getTitle()}">
+					<!--@end-->
+				</a>
+				<div class="list_entry_info">
+					<div class="list_entry_info_title">
+						<a href="{$item->getLink()}">{$item->getShortTitle($widget_info->subject_cut_size)}</a>
+					</div>
+					<div class="list_entry_info_summary">
+						<a href="{$item->getLink()}">{$item->getContent()}</a>
+					</div>
+					<span>
+						<a href="{$item->getLink()}">{$item->getRegdate()} l <span class="info_comment">댓글 {$item->getCommentCount()}개</span></a>
+					</span>
 				</div>
-				<div class="hiddenBlock hidden">
-					<div class="block_header">{$item->getTitle()}</div>
-					<small>{$item->getRegdate()}</small>
-					<p>{$item->getContent()}</p>
-				</div>	
 			</li>
-			</a>
-			<!--@end-->
 			<!--@end-->
 			<!--@end-->
 		</ul>
