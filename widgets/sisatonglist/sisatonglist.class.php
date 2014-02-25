@@ -335,13 +335,13 @@
 		}
 		function getCommentCount(){
 			$comment_count = $this->get('comment_count');
-			return $comment_count>0 ? $comment_count : '';
+			return $comment_count>0 ? $comment_count : '0';			
 		}
 		function getTrackbackCount(){
 			$trackback_count = $this->get('trackback_count');
 			return $trackback_count>0 ? $trackback_count : '';
 		}
-		function getRegdate($format = 'Y.m.d H:i:s') {
+		function getRegdate($format = 'Y.m.d') {
 			return zdate($this->get('regdate'), $format);
 		}
 		function printExtraImages() {
