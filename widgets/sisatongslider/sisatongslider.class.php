@@ -116,10 +116,7 @@
 
 					if ($getcount >= $needcount) {
 						break;
-					} 
-
-					// 썸네일 이미지 있는지 확인
-					if (!$oDocument->getThumbnail($args->thumbnail_width,$args->thumbnail_height,$args->thumbnail_type)) continue;
+					}
 
 					// 권한이 있다면 객체화 준비
 					$GLOBALS['XE_DOCUMENT_LIST'][$oDocument->document_srl] = $oDocument;
@@ -167,6 +164,7 @@
 			$widget_info->main_subject_cut_size = $args->main_subject_cut_size;
 			$widget_info->sub_subject_cut_size = $args->sub_subject_cut_size;
 
+			$widget_info->no_image = $args->no_image;
 			$widget_info->thumbnail_type = $args->thumbnail_type;
 			$widget_info->thumbnail_width = $args->thumbnail_width;
 			$widget_info->thumbnail_height = $args->thumbnail_height;
