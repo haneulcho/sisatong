@@ -15,7 +15,7 @@
 		<div class="rt_area">
 			<div cond="$list_config['thumbnail']" class="tmb_wrp ribbon_v{$mi->ribbon_style}">
 				<!--// 썸네일 -->
-				<span cond="!$document->thumbnailExists()" class="no_img tmb">No Image</span>
+				<span cond="!$document->thumbnailExists()" class="no_img tmb">시사통</span>
 				<block cond="$document->thumbnailExists()"><span cond="$mi->tmb_effect=='2'" class="no_img loading"></span><img class="tmb" src="{$document->getThumbnail($mi->zine_thumb_width,$mi->zine_thumb_height,$mi->zine_thumb_type)}" alt="" /></block>
 				<!--// 좌측 상단 리본 -->
 				<span class="ribbon nnu notice"><i>notice</i></span>
@@ -59,7 +59,7 @@
 		<div class="rt_area">
 			<div cond="$list_config['thumbnail']" class="tmb_wrp ribbon_v{$mi->ribbon_style}">
 				<!--// 썸네일 -->
-				<span cond="!$document->thumbnailExists()" class="no_img tmb">No Image</span>
+				<span cond="!$document->thumbnailExists()" class="no_img tmb">시사통</span>
 				<block cond="$document->thumbnailExists()"><span cond="$mi->tmb_effect=='2'" class="no_img loading"></span><img class="tmb" src="{$document->getThumbnail($mi->zine_thumb_width,$mi->zine_thumb_height,$mi->zine_thumb_type)}" alt="" /></block>
 				<!--// 리본 -->
 				<block cond="$mi->zine_ribbon!='N'">
