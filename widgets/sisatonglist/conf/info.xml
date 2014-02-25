@@ -85,6 +85,11 @@
 			<name xml:lang="ko">제목 글자수</name>
 			<description xml:lang="ko">제목 글자수를 지정할 수 있습니다. (0또는 비워주시면 자르지 않습니다)</description>
 		</var>
+		<var id="no_image">
+			<type>text</type>
+			<name xml:lang="ko">no image 경로</name>
+			<description xml:lang="ko">no image 경로를 정해주세요.</description>
+		</var>
 		<var id="module_srls">
 			<type>module_srl_list</type>
 			<name xml:lang="ko">대상 모듈</name>
