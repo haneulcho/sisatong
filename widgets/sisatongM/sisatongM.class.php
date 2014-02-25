@@ -123,9 +123,6 @@
 						break;
 					} 
 
-					// 썸네일 이미지 있는지 확인
-					if (!$oDocument->getThumbnail($args->thumbnail_width,$args->thumbnail_height,$args->thumbnail_type)) continue;
-
 					// 권한이 있다면 객체화 준비
 					$GLOBALS['XE_DOCUMENT_LIST'][$oDocument->document_srl] = $oDocument;
 					$document_srls[] = $oDocument->document_srl;
