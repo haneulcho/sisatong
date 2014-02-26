@@ -196,7 +196,9 @@ class rssView extends rss
 				$file = 'rss10';
 				break;
 			default:
-				$file = 'rss20';
+				// 20140226 add a custom feed style
+				// $file = 'rss20';
+				$file = 'custom_rss';
 				break;
 		}
 

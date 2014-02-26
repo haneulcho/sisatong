@@ -1,0 +1,38 @@
+{'<?xml version="1.0" encoding="UTF-8" ?>'}
+
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:slash="http://purl.org/rss/1.0/modules/slash/">
+	<channel>
+		<title><![CDATA[{$info->title}]]></title>
+		<link>{$info->link}</link>
+		<description><![CDATA[{$info->description}]]></description>
+		<language>{$info->language}</language>
+		<pubDate>{$info->date}</pubDate>
+		<lastBuildDate>{$info->date}</lastBuildDate>
+		<generator>Sisatong</generator>
+		<!--@if($info->feed_copyright)-->
+		<copyright><![CDATA[{$info->feed_copyright}]]></copyright>
+		<!--@end-->
+		<!--@if($info->image)-->
+		<image>
+			<url>{$info->image}</url>
+			<title><![CDATA[{$info->title}]]></title>
+			<link>{$info->link}</link>
+		</image>
+		<!--@end-->
+		<!--@foreach($document_list as $oDocument)-->
+		<item>
+			<title><![CDATA[{str_replace('\'', '&apos;',htmlspecialchars($oDocument->getTitleText(), ENT_COMPAT | ENT_HTML401, 'UTF-8', false))}]]></title>
+			<link>{$oDocument->getPermanentUrl()}</link>
+			<description>{$oDocument->getTransContent(false,false,true,true,true)}</description>
+			<!--@if($oDocument->isExtraVarsExists())-->
+				<!--@foreach($oDocument->getExtraVars() as $extraVar)-->
+					<!--@if($extraVar->eid == 'related_podcast' && $extraVar->value)-->
+					<podcast_title>{$extraVar->value}</podcast_title>
+					<!--@end-->
+				<!--@end-->
+			<!--@end-->
+			<pubDate>{$oDocument->getRegdateGM()}</pubDate>
+		</item>
+		<!--@end-->
+	</channel>
+</rss>
