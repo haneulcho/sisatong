@@ -113,6 +113,12 @@ var msg_kr_address_etc = '{$lang->msg_kr_address_etc}';
 			<label for="{$key}">{$value}</label>
 			<!--@end-->
 		</div>
+		<!-- 140226 글쓴이 수정란 추가 -->
+		<div cond="$grant->manager || $mi->tl_color=='2'">
+		<block cond="$grant->manager">
+			글쓴이 nick_name(글쓴이 수정시에만 변경, 글 작성시에는 공란): <input type="text" name="modified_nick_name" id="modified_nick_name" value="{$oDocument->getNickName()}"/>
+		</block>
+		</div>
 	</div>
 
 	<!--// SocialXE -->

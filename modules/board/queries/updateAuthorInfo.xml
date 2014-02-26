@@ -1,0 +1,14 @@
+<query id="updateAuthorInfo" action="update">
+    <tables>
+        <table name="documents" />
+    </tables>
+    <columns>
+        <column name="user_id" var="user_id" />
+        <column name="user_name" var="user_name" />
+        <column name="nick_name" var="nick_name" />
+        <column name="member_srl" var="member_srl" />
+    </columns>
+    <conditions>
+        <condition operation="equal" column="document_srl" var="document_srl" notnull="notnull" />
+    </conditions>
+</query>
