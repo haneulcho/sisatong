@@ -13,6 +13,7 @@
 .list_entry_info_title, .list_entry_info_summary {overflow:hidden;}
 .list_entry_info_title {height:15px; margin-bottom:7px; font-size:14px; font-weight:bold;}
 .list_entry_info_summary {height:30px; margin-bottom:9px; line-height:1.33em;}
+.list_entry_info_summary a {height:30px; display:inline-block;}
 .list_entry_info_title a, .list_entry_info_summary a {color:#444;}
 .list_entry_info span a {color:#888; font-size:11px;}
 .list_entry_info span a .info_comment {color:#ed6770;}
