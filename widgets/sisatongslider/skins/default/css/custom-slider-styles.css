@@ -44,19 +44,24 @@
 }
 
 .image_thumb {
-	float: left;
 	width: 147px;
 	color: #fff;
+	margin:0;
+	padding:0;
 	overflow: hidden;
 }
 .image_thumb ul {
 	margin: 0; padding: 0;
+	overflow:hidden;
+	width:100%;
 	list-style: none;
 }
 .image_thumb ul li{
 	margin: 0; padding: 0;
+	width:100%;
 	height: 99px;
-	float: left;
+	overflow:hidden;
+	float:left;
 	border-bottom: 1px solid #222;
 	position: relative;
 }
@@ -78,11 +83,13 @@
 .image_thumb ul li .block {
 	margin: 0;
 	position: absolute;
-	top: 75px;
+	bottom: -1px;
 	padding: 6px;
 	background-color: #000;
 	font-size: 11px;
 	opacity: 0.75;
+	-ms-filter:alpha(opacity=75); /* IE8 */
+	filter:alpha(opacity=75); /* IE7 */
 	width: 135px;
 }	
 
