@@ -546,11 +546,11 @@
 .context_message .bd_btn{margin:6px;padding:8px 28px}
 
 /* Extra Var */
-.et_vars{display:none;margin-bottom:20px;border:1px solid #DDD;border-bottom-color:#CCC}
+.et_vars{display:none;margin-bottom:20px;border:1px solid #DDD;border-bottom-color:#CCC; border-top:none;}
 .et_vars th,.et_vars td{padding:7px 16px;border-top:1px solid #DDD;word-break:break-all;word-wrap:break-word}
 .et_vars tr:first-child th,.et_vars tr:first-child td{border-top:0}
 .et_vars th{padding:7px 24px;border-right:1px solid #DDD;white-space:nowrap}
-.et_vars tr.bg1{background:#F6F6F6}
+.et_vars tr.bg1{background:#F6F6F6; border-top: 1px solid #DDD;}
 .et_vars td{width:100%;text-align:left}
 .et_vars .bg1 td{background:rgba(255,255,255,.7);background:url(../img/ie/wh_op7.png)}
 .rd_hd .et_vars{position:relative;margin-top:-1px;border-width:1px 0}
