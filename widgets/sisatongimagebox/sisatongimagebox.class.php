@@ -20,6 +20,8 @@
 			if (!$args->thumbnail_type) $args->thumbnail_type = 'crop';
 			if (!$args->thumbnail_url) $args->thumbnail_url = NULL;
 			if (!$args->thumbnail_link_url) $args->thumbnail_link_url = NULL;
+			if (!$args->imagemap_id) $args->imagemap_id = NULL;
+			if (!$args->imagemap_content) $args->imagemap_content = NULL;
 
 			$oTemplate = &TemplateHandler::getInstance();
 
@@ -28,6 +30,8 @@
 			$widget_info->thumbnail_link_url = $args->thumbnail_link_url;
 			$widget_info->widget_width = $args->widget_width;
 			$widget_info->widget_height = $args->widget_height;
+			$widget_info->imagemap_id = $args->imagemap_id;
+			$widget_info->imagemap_content = $args->imagemap_content;
 
 			Context::set('colorset', $args->colorset);
 			Context::set('widget_info', $widget_info);
