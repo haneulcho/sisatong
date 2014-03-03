@@ -1,7 +1,7 @@
 .article_list {width:746px; border:1px solid #d6d6d6; display:table;}
 .list_header {padding:12px 15px; font-size:13px; background-color:#fafafa; border-bottom:1px solid #bcbcbc; font-weight:bold; font-family: "나눔고딕", "NanumGothic", "AppleGothic", sans-serif;}
 .list_header, .list_entry_info_title a:hover {color:#e91926;}
-.list_column {float:left; width:50%; height:455px;}
+.list_column {float:left; width:50%; height:797px;}
 .list_column ul.last {border-right:none;}
 .list_column ul {margin:0; padding:0; list-style:none; border-right:1px solid #d6d6d6;}
 .list_column ul li {margin:0; padding:16px 18px; border-bottom:1px solid #d6d6d6;}

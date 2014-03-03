@@ -107,7 +107,7 @@ class boardController extends board
 			$output = $oDocumentController->updateDocument($oDocument, $obj);
 			$msg_code = 'success_updated';
 
-			// // 140226 글쓴이 수정 추가
+			// 140226 글쓴이 수정 추가
 			if($this->grant->manager && $obj->modified_nick_name && $oDocument->getNickName() != $obj->modified_nick_name)
 			{
 				// get user info by modified_nick_name
@@ -131,7 +131,6 @@ class boardController extends board
 					return new Object(-1,'msg_not_permitted');
 				}
 			}
-
 		// insert a new document otherwise
 		} else {
 			$output = $oDocumentController->insertDocument($obj, $bAnonymous);
@@ -155,6 +154,16 @@ class boardController extends board
 					$oMail->send();
 				}
 			}
+		}
+
+		// 140227 추가 변수 회원 정보 수정 추가
+		if ($obj->supporter_name && $obj->supporter_phone)
+		{
+			$extra_vars = unserialize($logged_info->extra_vars);
+			$extra_vars['supporter_name'] = $obj->supporter_name;
+			$extra_vars['supporter_phone'] = $obj->supporter_phone;
+			$logged_info->extra_vars = serialize($extra_vars);
+			$update_supporter_member = executeQuery('board.updateSupporterInfo', $logged_info);
 		}
 
 		// if there is an error
