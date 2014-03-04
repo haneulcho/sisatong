@@ -40,7 +40,21 @@ var msg_kr_address_etc = '{$lang->msg_kr_address_etc}';
 		</tr>
 	</table>
 
-	<table cond="count($extra_keys)" class="exForm bd_tb">
+	<!-- 20140304 글쓴이 정보 입력 -->
+	<table cond="$mi->module_srl == 2056 && $grant->manager" class="exForm bd_tb">
+		{@
+		$logged_info = Context::get('logged_info');
+		}
+		<tr>
+			<th scope="row">구독자명</th>
+			<td><input type="text" name="supporter_name" value="{$logged_info->supporter_name}" class="text itx"></td>
+		</tr>
+		<tr>
+			<th scope="row">구독 회원 연락처</th>
+			<td><input type="text" name="supporter_phone" value="{$logged_info->supporter_phone}" class="text itx"></td>
+		</tr>
+	</table>
+	<table cond="$mi->module_srl != 2056 && count($extra_keys)" class="exForm bd_tb">
 		<caption><strong><em>*</em></strong> <small>: {$lang->is_required}</small></caption>
 		<tr loop="$extra_keys=>$key,$val">
 			<th scope="row"><em cond="$val->is_required=='Y'">*</em> {$val->name}</th>

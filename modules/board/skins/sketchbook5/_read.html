@@ -114,7 +114,6 @@
 		<table cond="$mi->module_srl == 2056 && (!$oDocument->isSecret() || $oDocument->isGranted())" class="et_vars bd_tb">
 			<caption class="blind"></caption>
 			{@
-
 			$oMemberModel = &getModel('member');
 			$member_info = $oMemberModel->getMemberInfoByMemberSrl($oDocument->get('member_srl'));
 			}

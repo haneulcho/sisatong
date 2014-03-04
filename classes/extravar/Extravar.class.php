@@ -458,12 +458,7 @@ class ExtraItem
 				break;
 			// General text
 			default :
-				$eid = $this->eid;
-				if ($eid == 'supporter_name' || $eid == 'supporter_phone') {
-					$buff[] =' <input type="text" name="' . $eid . '" value="' . ($value ? $value : $default) . '" class="text" />';
-				} else {
-					$buff[] =' <input type="text" name="' . $column_name . '" value="' . ($value ? $value : $default) . '" class="text" />';
-				}
+				$buff[] =' <input type="text" name="' . $column_name . '" value="' . ($value ? $value : $default) . '" class="text" />';
 		}
 		if($this->desc)
 		{
