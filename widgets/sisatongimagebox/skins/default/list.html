@@ -2,9 +2,9 @@
 <div class="sisatong_imagebox">
 <div class="widgetContainer">
 	<!--@if($widget_info->thumbnail_link_url)-->
-	<a href="{$widget_info->thumbnail_link_url}"><img src="{$widget_info->thumbnail_url}" alt="시사통 이미지 박스" width="{$widget_info->widget_width}" height="{$widget_info->widget_height}"></a>
+	<a href="{$widget_info->thumbnail_link_url}"><img src="{$widget_info->thumbnail_url}" alt="시사통 이미지 박스" width="{$widget_info->thumbnail_width}" height="{$widget_info->thumbnail_height}"></a>
 	<!--@else-->
-	<img src="{$widget_info->thumbnail_url}" alt="시사통 이미지 박스" width="{$widget_info->widget_width}" height="{$widget_info->widget_height}" usemap="#{$widget_info->imagemap_id}">
+	<img src="{$widget_info->thumbnail_url}" alt="시사통 이미지 박스" width="{$widget_info->thumbnail_width}" height="{$widget_info->thumbnail_height}" usemap="#{$widget_info->imagemap_id}">
 	{$widget_info->imagemap_content}
 	<!--@end-->
 </div>

@@ -16,7 +16,9 @@
 
 		function proc($args) {
 			if (!$args->widget_width) $args->widget_width = 200;
-			if (!$args->widget_height) $args->widget_height = 300;
+			if (!$args->widget_height) $args->widget_height = 302;
+			if (!$args->thumbnail_width) $args->thumbnail_width = 198;
+			if (!$args->thumbnail_height) $args->thumbnail_height = 300;
 			if (!$args->thumbnail_type) $args->thumbnail_type = 'crop';
 			if (!$args->thumbnail_url) $args->thumbnail_url = NULL;
 			if (!$args->thumbnail_link_url) $args->thumbnail_link_url = NULL;
@@ -30,6 +32,8 @@
 			$widget_info->thumbnail_link_url = $args->thumbnail_link_url;
 			$widget_info->widget_width = $args->widget_width;
 			$widget_info->widget_height = $args->widget_height;
+			$widget_info->thumbnail_width = $args->thumbnail_width;
+			$widget_info->thumbnail_height = $args->thumbnail_height;
 			$widget_info->imagemap_id = $args->imagemap_id;
 			$widget_info->imagemap_content = $args->imagemap_content;
 
