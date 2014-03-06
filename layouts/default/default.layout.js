@@ -1,15 +1,15 @@
 jQuery(function($){
 // Search Form Toggle
-	var $searchBtn = $('.search input[type="button"]');
+	var $searchBtn = $('#searchBtn');
 	var $searchField = $('.search input[type="text"]');
+	var $searchFocus = $('.search input[type="text"]');
 	$searchBtn.click(function(){
 		$this = $(this);
 		$searchField.slideToggle(200, function(){
 			if(searchField.is(':visible')){
-				$searchField.focus();
+				$searchFocus.focus();
 			}
 		});
-		return false;
 	});
 
 // GNB
