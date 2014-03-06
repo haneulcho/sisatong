@@ -1,4 +1,17 @@
 jQuery(function($){
+// Search Form Toggle
+	var $searchBtn = $('.search input[type="button"]');
+	var $searchField = $('.search input[type="text"]');
+	$searchBtn.click(function(){
+		$this = $(this);
+		$searchField.slideToggle(200, function(){
+			if(searchField.is(':visible')){
+				$searchField.focus();
+			}
+		});
+		return false;
+	});
+
 // GNB
 	var $gnb = $('.gnb');
 	var $gnb_li = $gnb.find('>ul>li');
