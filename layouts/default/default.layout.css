@@ -54,7 +54,7 @@ table{/* border-collapse:collapse;table-layout:fixed; */border-collapse:collapse
 .header #searchBtn {float:right; margin:6px 5px 0 0;display:inline-block;*display:inline;zoom:1;font-size:12px;vertical-align:top;border-radius:2px;background:#484d51;border:1px solid #272b30;height:21px;line-height:20px;padding:0 10px;cursor:pointer;box-shadow:0 1px 0 #6d7174 inset;color:#FFF;}
 .header .search{display:inline-block;*display:inline;zoom:1;vertical-align:top;margin:0}
 .header .search>input{font-size:12px;vertical-align:top;border-radius:2px}
-.header .search>input[type="text"]{display:none; position:absolute; z-index:2; width:178px; height:20px; top:30px; right:0; border:1px solid #d7d7d7; border-radius:3px; margin:0; padding:5px 10px; box-shadow:0 1px 0 #aaa;}
+.header .search #searchField {display:none; position:absolute; z-index:2; width:178px; height:20px; top:30px; right:0; border:1px solid #d7d7d7; border-radius:3px; margin:0; padding:5px 10px; box-shadow:0 1px 0 #aaa;}
 .header .search>input[type="submit"]{display:none; position:absolute; z-index:3; top:35px;right:5px;background:#484d51;border:1px solid #272b30;height:23px;line-height:23px;padding:0 15px;margin:0;cursor:pointer;box-shadow:0 1px 0 #6d7174 inset;color:#FFF;}
 
 /* GNB */

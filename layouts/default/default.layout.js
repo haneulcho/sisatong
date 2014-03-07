@@ -1,13 +1,11 @@
 jQuery(function($){
 // Search Form Toggle
 	var $searchBtn = $('#searchBtn');
-	var $searchField = $('.search input[type="text"]');
-	var $searchFocus = $('.search input[type="text"]');
+	var $searchField = $('#searchField');
 	$searchBtn.click(function(){
-		$this = $(this);
 		$searchField.slideToggle(200, function(){
-			if(searchField.is(':visible')){
-				$searchFocus.focus();
+			if($searchField.is(':visible')){
+				$searchField.focus();
 			}
 		});
 	});
