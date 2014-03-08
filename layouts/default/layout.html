@@ -59,11 +59,12 @@
 			</ul>
 			
 			<!-- SEARCH -->
+			<span id="searchBtn">검색</span>
 			<form action="{getUrl()}" method="get" class="search">
 				<input type="hidden" name="vid" value="{$vid}" />
 				<input type="hidden" name="mid" value="{$mid}" />
 				<input type="hidden" name="act" value="IS" />
-				<input type="text" name="is_keyword" value="{$is_keyword}" required placeholder="{$lang->cmd_search}" title="{$lang->cmd_search}" />
+				<input type="text" name="is_keyword" value="{$is_keyword}" id="searchField" required placeholder="검색어 입력 후 엔터" title="{$lang->cmd_search}" />
 				<input type="submit" value="{$lang->cmd_search}" />
 			</form>
 
