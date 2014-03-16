@@ -1,9 +1,5 @@
 <?php
-	if (!$_SESSION['is_logged']) {
-		header("Location: http://sisatong.net");
-	} else {
-		$logged_info = Context::get('logged_info');
-	}
+	$logged_info = Context::get('logged_info');
 ?>
 <!DOCTYPE HTML>
 <html>

@@ -10,19 +10,26 @@
 <script src="http://ap.efnc.co.kr/fnpay/ssign/comm/ssign.js" charset="euc-kr"></script>
 
 
-<table width="475" height="425" border="0" cellpadding="0" cellspacing="0">
+<table width="650" height="425" border="0" cellpadding="0" cellspacing="0">
 	<tr>
-		<td width="475" height="101" style="width:420px; padding:0; border-bottom:none;">
+		<td width="650" height="101" style="width:420px; padding:0; border-bottom:none;">
 			<img src="images/title.jpg" alt="시사통 구독 신청">
 		</td>
 	</tr>
+	<?php if (!$logged_info) { ?>
 	<tr>
-		<td style="width:420px; height:240px; padding-top:1px; padding-left:12px; background-color:#fff; border:none;">
-			<table width="461" style="margin-left:25px;" border="0" cellpadding="0" cellspacing="0">
+		<td width="650" height="50" style="width:420px; padding:0; border-bottom:none;">
+			<a title="시사통 회원가입하러 가기" href="http://sisatong.net/index.php?act=dispMemberSignUpForm" target="_blank">시사통 회원가입하러 가기</a>
+		</td>
+	</tr>
+	<?php } ?>
+	<tr>
+		<td width="650" style="height:240px; padding-top:1px; padding-left:12px; border:none;">
+			<table width="636" style="margin-left:25px;" border="0" cellpadding="0" cellspacing="0">
 				<form name="f1" id="f1" method="post">
 				<input type="hidden" name="mode" value="send">
 
-				<tr> 
+				<tr>
 					<td width="132" height="30"><span class="theadt">예금주 (신청인)</span></td>
 					<td colspan="3"><input id="bankname" name="bankname" type="text" size="15" maxlength="100" value="<?php echo $logged_info->supporter_name; ?>"></td>
 				</tr>
@@ -30,6 +37,11 @@
 				<tr>
 					<td width="132" height="30"><span class="theadt">휴대폰<br />('-', 공백 없이 숫자만 입력)</span></td>
 					<td colspan="3"><input id="mem_tel" name="mem_tel" type="text" style="width:156px" maxlength="12" value="<?php echo preg_replace('/\D/', '', $logged_info->supporter_phone); ?>"></td>
+				</tr>
+
+				<tr>
+					<td width="132" height="30"><span class="theadt">이메일</span></td>
+					<td colspan="3"><input id="mem_email" name="mem_email" type="text" style="width:156px" maxlength="50" value="<?php echo $logged_info->email_address; ?>"></td>
 				</tr>
 
 				<tr>
@@ -41,6 +53,20 @@
 						<input type="radio" class="bnone pay_d_amount" name="pay_d_amount" value="30000">30,000원 
 						<input type="radio" id="is_pay_custom" class="bnone pay_d_amount" name="pay_d_amount" value="custom">직접입력 
 						<input type="text" id="pay_custom_amount" name="pay_custom_amount" maxlength="6" placeholder="숫자만 입력" disabled>
+					</td>
+				</tr>
+
+				<tr>
+					<td width="132" height="30"><span class="theadt">구독료 이체일</span></td>
+					<td colspan="3">
+						<input type="radio" class="bnone pay_d_date" name="pay_d_date" value="5">5일 
+						<input type="radio" class="bnone pay_d_date" name="pay_d_date" value="10">10일 
+						<input type="radio" class="bnone pay_d_date" name="pay_d_date" value="15">15일 
+						<input type="radio" class="bnone pay_d_date" name="pay_d_date" value="20">20일 
+						<input type="radio" class="bnone pay_d_date" name="pay_d_date" value="25">25일 
+						<input type="radio" class="bnone pay_d_date" name="pay_d_date" value="30">30일 
+						<input type="radio" id="is_pay_date_custom" class="bnone pay_d_date" name="pay_d_date" value="custom">직접입력 
+						<input type="text" id="pay_custom_date" name="pay_custom_date" maxlength="6" placeholder="숫자만 입력" disabled>
 					</td>
 				</tr>
 
@@ -90,14 +116,13 @@
 	<input type="hidden" name="pay_flag" value="N" />		<!-- 동의 후 즉시결제 처리유무(Y, N) -->
 
 	<!-- 회원정보용 parameter 설정 시작 -->
-	<input type="hidden" name="mem_id" value="<?php echo $logged_info->member_srl; ?>" />		<!-- 회원번호 (업체회원번호 자동부여 시, 무시됨) -->
+	<input type="hidden" name="mem_id" value="<?php echo $logged_info? $logged_info->member_srl: 'not_member'; ?>" />		<!-- 회원번호 (업체회원번호 자동부여 시, 무시됨) -->
 	<input type="hidden" name="auth_key" value="0" />				<!-- 효성발행 인증 Key, 수정/해지 시 필수-->
-	<input type="hidden" name="mem_nm" value="<?php echo $logged_info->nick_name; ?>" />		<!-- 회원명, 이용기관용 회원정보 -->
+	<input type="hidden" name="mem_nm" value="<?php echo $logged_info? $logged_info->nick_name: '비회원'; ?>" />		<!-- 회원명, 이용기관용 회원정보 -->
 	<!-- 공통 parameter 설정 끝 -->
 
 	<!-- 요청 paremeter, 옵션 -->
-	<input type="hidden" name="pay_dt" value="25" />		<!-- 약정일:01일~30일 (생략시 01일) -->
-	<input type="hidden" name="email" value="<?php echo $logged_info->email_address; ?>">
+	<input type="hidden" name="pay_dt" value="" />		<!-- 약정일:01일~30일 (생략시 01일) -->
 	<input type="hidden" name="pay_start" value="" />		<!-- 결제시작일 (생략시 오늘) -->
 	<input type="hidden" name="pay_end" value="" />			<!-- 결제종료일 (생략시 99991231) -->
 	<input type="hidden" name="pay_amount" value="" />		<!-- 회원기본결제금액 (생략시 0원) -->
@@ -126,6 +151,14 @@ $(document).ready(function() {
 		}
 	});
 
+	$('.pay_d_date').change(function() {
+		if ($('#is_pay_date_custom').attr('checked')) {
+			$('#pay_custom_date').removeAttr('disabled');
+		} else {
+			$('#pay_custom_date').attr('disabled', 'disabled');
+		}
+	});
+
 	$('.is_recv_receipt').change(function() {
 		if ($('#is_recv_recipt_true').attr('checked')) {
 			$('#receipt_info').removeAttr('disabled');
@@ -139,7 +172,9 @@ $(document).ready(function() {
 			document.charset = 'EUC-KR';  //form 넘길 때는 euc-kr
 			var $input_bankname = $('#bankname');
 			var $input_mem_tel = $('#mem_tel');
+			var $input_email = $('#mem_email');
 			var $input_pay_custom_amount = $('#pay_custom_amount');
+			var $input_pay_custom_date = $('#pay_custom_date');
 			var $input_receipt_info = $('#receipt_info');
 			
 			if ($.trim($input_bankname.val()) == '') {
@@ -158,9 +193,14 @@ $(document).ready(function() {
 				return;
 			}
 			var $mem_tel_root = $.trim($input_mem_tel.val()).substring(0,3);
-			if ($mem_tel_root != '010' && $mem_tel_root != '011' && $mem_tel_root != '016' && $mem_tel_root != '017' && $mem_tel_root != '018' && $mem_tel_root != '019') {
-				alert('제대로된 휴대폰(연락처) 번호를 입력해주세요.');
+			if (($mem_tel_root != '010' && $mem_tel_root != '011' && $mem_tel_root != '016' && $mem_tel_root != '017' && $mem_tel_root != '018' && $mem_tel_root != '019') || ($input_mem_tel.val().length < 10) || ($input_mem_tel.val().length > 11) ) {
+				alert('제대로 된 휴대폰(연락처) 번호를 입력해주세요.');
 				$input_mem_tel.focus();
+				return;
+			}
+			if ($.trim($input_email.val()) == '') {
+				alert('예금주(신청인)을 입력해주세요.');
+				$input_bankname.focus();
 				return;
 			}
 			if (!$('.pay_d_amount').is(':checked') || ($('.pay_d_amount:checked').val() == 'custom' && $.trim($input_pay_custom_amount.val()) == '')) {
@@ -175,6 +215,21 @@ $(document).ready(function() {
 			}
 			if ($('.pay_d_amount:checked').val() == 'custom' && Number($.trim($input_pay_custom_amount.val())) < 1000) {
 				alert('구독료는 1000원 이상부터 가능합니다.');
+				$input_pay_custom_amount.focus();
+				return;
+			}
+			if (!$('.pay_d_date').is(':checked') || ($('.pay_d_date:checked').val() == 'custom' && $.trim($input_pay_custom_date.val()) == '')) {
+				alert('구독료 이체일을 정해주세요.');
+				$('.pay_d_date').focus();
+				return;
+			}
+			if ($('.pay_d_date:checked').val() == 'custom' && isNaN($.trim($input_pay_custom_date.val()))) {
+				alert('구독료 이체일에는 숫자만 입력해주세요.');
+				$input_pay_custom_date.focus();
+				return;
+			}
+			if ($('.pay_d_date:checked').val() == 'custom' && (Number($.trim($input_pay_custom_date.val())) < 1 || Number($.trim($input_pay_custom_date.val())) > 30 )) {
+				alert('구독료 이체일은 1일~30일만 가능합니다.');
 				$input_pay_custom_amount.focus();
 				return;
 			}
@@ -195,7 +250,9 @@ $(document).ready(function() {
 			}
 			document.ssignform.acct_nm.value = $.trim($input_bankname.val()); //이름
 			document.ssignform.mem_tel.value = $.trim($input_mem_tel.val()); //핸드폰번호
-			document.ssignform.pay_amount.value = $('#is_pay_custom').is(':checked')? $.trim($input_pay_custom_amount.val()): $.trim($('.pay_d_amount:checked').val());
+			document.ssignform.mem_text.value = $.trim($input_email.val()); //이메일
+			document.ssignform.pay_dt.value = $('#is_pay_date_custom').is(':checked')? $.trim($input_pay_custom_date.val()): $.trim($('pay_d_date:checked').val()); // 이체일
+			document.ssignform.pay_amount.value = $('#is_pay_custom').is(':checked')? $.trim($input_pay_custom_amount.val()): $.trim($('.pay_d_amount:checked').val()); // 구독료
 			if ($('#is_recv_recipt_true').is(':checked')) {
 				document.ssignform.receipt_flag.value = 'Y';
 				document.ssignform.receipt_key.value = $.trim($input_receipt_info.val());
@@ -204,11 +261,12 @@ $(document).ready(function() {
 				document.ssignform.receipt_key.value = '';
 			}
 
-			// console.log(document.ssignform.acct_nm.value);
-			// console.log(document.ssignform.mem_tel.value);
-			// console.log(document.ssignform.pay_amount.value);
-			// console.log(document.ssignform.receipt_flag.value);
-			// console.log(document.ssignform.receipt_key.value);
+			console.log(document.ssignform.acct_nm.value);
+			console.log(document.ssignform.mem_tel.value);
+			console.log(document.ssignform.pay_amount.value);
+			console.log(document.ssignform.pay_dt.value);
+			console.log(document.ssignform.receipt_flag.value);
+			console.log(document.ssignform.receipt_key.value);
 
 			var ssignform = document.getElementById('ssignform');  //FORM
 			SSIGN_REQUEST(ssignform); //창 연동 스크립트
