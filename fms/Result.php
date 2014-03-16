@@ -34,14 +34,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title> 시사통 - 정기 구독(CMS 자동이체) 신청 결과</title>
+<title> 시사통 - 구독(CMS 자동이체) 신청 결과</title>
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body>
 <table width="475" height="400" border="0" cellpadding="0" cellspacing="0">
 	<tr>
 		<td width="475" height="101" style="width:420px; padding:0; border-bottom:none;">
-			<img src="images/title_ok.jpg" alt="시사통 정기 구독 신청 결과"></td>
+			<img src="images/title_ok.jpg" alt="시사통 구독 신청 결과"></td>
 		</td>
 	</tr>
 	<tr>
@@ -50,11 +50,11 @@
 <tr> 
 <? if($result_yn!=null && ($result_yn) == "Y"){ ?>
 <td colspan="2" height="50"><span class="theadt">
-				<strong>시사통 정기 구독 전자동의 결과, 동의에 <font color="red">성공</font>했습니다. 참여해주셔서 감사합니다!<br>
+				<strong>시사통 구독 전자동의 결과, 동의에 <font color="red">성공</font>했습니다. 참여해주셔서 감사합니다!<br>
 　아래의 신청 정보를 확인하세요.</strong></span>
 				<? }else{ ?>
 <td colspan="2" height="70"><span class="theadt">
-				<strong>시사통 정기 구독 전자동의 결과, 동의에 <font color="red">실패</font>했습니다.<br>
+				<strong>시사통 구독 전자동의 결과, 동의에 <font color="red">실패</font>했습니다.<br>
 　아래의 신청 정보를 확인하세요.</strong></span>
 				<? } ?></td>
 </tr>

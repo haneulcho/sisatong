@@ -1,51 +1,49 @@
 <?
     /*
-    REDIRPATH ÆäÀÌÁö¿¡¼­ redirection µÇ´Â Ã³¸® °á°ú Á¤º¸ È®ÀÎ ÆäÀÌÁö ÀÔ´Ï´Ù.
+    REDIRPATH íŽ˜ì´ì§€ì—ì„œ redirection ë˜ëŠ” ì²˜ë¦¬ ê²°ê³¼ ì •ë³´ í™•ì¸ íŽ˜ì´ì§€ ìž…ë‹ˆë‹¤.
     */
 
-    if (phpversion() >= 4.2) { // POST, GET ¹æ½Ä¿¡ °ü°è ¾øÀÌ »ç¿ëÇÏ±â À§ÇØ¼­
+    if (phpversion() >= 4.2) { // POST, GET ë°©ì‹ì— ê´€ê³„ ì—†ì´ ì‚¬ìš©í•˜ê¸° ìœ„í•´ì„œ
         if (count($_POST)) extract($_POST, EXTR_PREFIX_SAME, 'VARS_');
         if (count($_GET)) extract($_GET, EXTR_PREFIX_SAME, '_GET');
     }
 
 
     /*
-    ¾Æ·¡¿Í °°Àº °ªÀÌ Àü¼ÛµË´Ï´Ù. ÀÚ¼¼ÇÑ ¼³¸íÀº ¸Å´º¾óÀ» Âü°í¹Ù¶ø´Ï´Ù.
+    ì•„ëž˜ì™€ ê°™ì€ ê°’ì´ ì „ì†¡ë©ë‹ˆë‹¤. ìžì„¸í•œ ì„¤ëª…ì€ ë§¤ë‰´ì–¼ì„ ì°¸ê³ ë°”ëžë‹ˆë‹¤.
 
-	$result_yn		// Ã³¸® ¼º°ø½ÇÆÐ ¿©ºÎ['Y':¼º°ø/'N':½ÇÆÐ]
-	$result_msg		// Ã³¸®¸Þ½ÃÁö
-	$mx_issue_no	// Ã³¸®¹øÈ£
-	$mx_issue_date	// Ã³¸®ÀÏÀÚ
-	$ret_param2			// ÀÌ¿ë±â°ü¿ë °ª
-	$mem_id			// È¸¿ø¹øÈ£
-	$mem_nm			// ÀÌ¿ë±â°ü¿ë È¸¿øÁ¤º¸
-	$auth_key		// È¿¼ºÀÎÁõkey
+	$result_yn		// ì²˜ë¦¬ ì„±ê³µì‹¤íŒ¨ ì—¬ë¶€['Y':ì„±ê³µ/'N':ì‹¤íŒ¨]
+	$result_msg		// ì²˜ë¦¬ë©”ì‹œì§€
+	$mx_issue_no	// ì²˜ë¦¬ë²ˆí˜¸
+	$mx_issue_date	// ì²˜ë¦¬ì¼ìž
+	$ret_param2			// ì´ìš©ê¸°ê´€ìš© ê°’
+	$mem_id			// íšŒì›ë²ˆí˜¸
+	$mem_nm			// ì´ìš©ê¸°ê´€ìš© íšŒì›ì •ë³´
+	$auth_key		// íš¨ì„±ì¸ì¦key
 
     */
 ?>
 
 <html>
 <head>
-<title>::::: ÇØÁö °á°ú È®ÀÎ(PHP) :::::</title>
-<meta http-equiv="Content-Type" content="text/html; charset=euc-kr"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>::::: í•´ì§€ ê²°ê³¼ í™•ì¸(PHP) :::::</title>
+<link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body>
-	<b>ÇØÁö °á°ú :</b>
+	<b>í•´ì§€ ê²°ê³¼ :</b>
 	<? if($result_yn!=null && ($result_yn) == "Y"){ ?>
-		<b>&nbsp;ÇØÁö ¼º°øÇß½À´Ï´Ù.(PHP)</b><br/>
+		<b>&nbsp;í•´ì§€ ì„±ê³µí–ˆìŠµë‹ˆë‹¤.(PHP)</b><br/>
 	<? }else{ ?>
-		<b>&nbsp;ÇØÁö ½ÇÆÐÇß½À´Ï´Ù.(PHP)</b><br/>
+		<b>&nbsp;í•´ì§€ ì‹¤íŒ¨í–ˆìŠµë‹ˆë‹¤.(PHP)</b><br/>
 	<? } ?>
 	<br/>
 	<br/>
-	<p>ÇØÁö Á¤º¸ È®ÀÎ</p>
-	Ã³¸®¹øÈ£ :&nbsp;<?=$mx_issue_no!=null ? $mx_issue_no : "" ?><br/>
-	µ¿ÀÇÀÏÀÚ :&nbsp;<?=$mx_issue_date!=null ? $mx_issue_date : "" ?><br/>
-	È¸¿øÁ¤º¸ :&nbsp;<?=$mem_id!=null ? $mem_id : "" ?><br/>
-	°á°ú±¸ºÐ :&nbsp;<?=$result_yn!=null ? $result_yn : "" ?><br/>
-	°á°ú¸Þ½ÃÁö :&nbsp;<?=$result_msg!=null ? $result_msg : "" ?><br/>
-
-
-
+	<p>í•´ì§€ ì •ë³´ í™•ì¸</p>
+	ì²˜ë¦¬ë²ˆí˜¸ :&nbsp;<?=$mx_issue_no!=null ? $mx_issue_no : "" ?><br/>
+	ë™ì˜ì¼ìž :&nbsp;<?=$mx_issue_date!=null ? $mx_issue_date : "" ?><br/>
+	íšŒì›ì •ë³´ :&nbsp;<?=$mem_id!=null ? $mem_id : "" ?><br/>
+	ê²°ê³¼êµ¬ë¶„ :&nbsp;<?=$result_yn!=null ? $result_yn : "" ?><br/>
+	ê²°ê³¼ë©”ì‹œì§€ :&nbsp;<?=$result_msg!=null ? $result_msg : "" ?><br/>
 </body>
 </html>

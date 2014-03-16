@@ -1,26 +1,26 @@
 <?
 	/*
-	ÇØÁöÃ¢ Á¾·á, È¸¿ø(ÀÌ¿ëÀÚ) ÇØÁö °á°ú È®ÀÎ ÆäÀÌÁö(RESULT ÆäÀÌÁö)¸¦ È£ÃâÇÏ±â À§ÇÑ ÆäÀÌÁö ÀÔ´Ï´Ù.
-	(ÇØÁö ¿Ï·á -> DBPATH °á°úÀü¼Û -> REDIRPATH ÆäÀÌÁö -> ÇØÁöÃ¢ Á¾·á -> RESULT ÆäÀÌÁö)
+	í•´ì§€ì°½ ì¢…ë£Œ, íšŒì›(ì´ìš©ì) í•´ì§€ ê²°ê³¼ í™•ì¸ í˜ì´ì§€(RESULT í˜ì´ì§€)ë¥¼ í˜¸ì¶œí•˜ê¸° ìœ„í•œ í˜ì´ì§€ ì…ë‹ˆë‹¤.
+	(í•´ì§€ ì™„ë£Œ -> DBPATH ê²°ê³¼ì „ì†¡ -> REDIRPATH í˜ì´ì§€ -> í•´ì§€ì°½ ì¢…ë£Œ -> RESULT í˜ì´ì§€)
 	*/
 
-	if (phpversion() >= 4.2) { // POST, GET ¹æ½Ä¿¡ °ü°è ¾øÀÌ »ç¿ëÇÏ±â À§ÇØ¼­
+	if (phpversion() >= 4.2) { // POST, GET ë°©ì‹ì— ê´€ê³„ ì—†ì´ ì‚¬ìš©í•˜ê¸° ìœ„í•´ì„œ
         if (count($_POST)) extract($_POST, EXTR_PREFIX_SAME, 'VARS_');
         if (count($_GET)) extract($_GET, EXTR_PREFIX_SAME, '_GET');
     }
 
-	$RESULTPATH = "/../fmail/CancelResult.php"; // °á°ú È®ÀÎ ÆäÀÌÁöÀÇ ÆäÀÌÁö¸í°ú °æ·Î¸¦ ¼³Á¤ÇÕ´Ï´Ù.
-	$CLOSETYPE = "OFF"; // Ã¢À» ¿©±â¼­ ´İÀ» °ÍÀÎÁö ´ÙÀ½ ÆäÀÌÁö¿¡¼­ ´İÀ» °ÍÀÎÁö. (ÀÏ¹İÀûÀ¸·Î OFF)
+	$RESULTPATH = "/fms/CancelResult.php"; // ê²°ê³¼ í™•ì¸ í˜ì´ì§€ì˜ í˜ì´ì§€ëª…ê³¼ ê²½ë¡œë¥¼ ì„¤ì •í•©ë‹ˆë‹¤.
+	$CLOSETYPE = "OFF"; // ì°½ì„ ì—¬ê¸°ì„œ ë‹«ì„ ê²ƒì¸ì§€ ë‹¤ìŒ í˜ì´ì§€ì—ì„œ ë‹«ì„ ê²ƒì¸ì§€. (ì¼ë°˜ì ìœ¼ë¡œ OFF)
 
 	/*
-	$result_yn		// Ã³¸® ¼º°ø½ÇÆĞ ¿©ºÎ['Y':¼º°ø/'N':½ÇÆĞ]
-	$result_msg		// Ã³¸®¸Ş½ÃÁö
-	$mx_issue_no	// Ã³¸®¹øÈ£
-	$mx_issue_date	// Ã³¸®ÀÏÀÚ
-	$ret_param2			// ÀÌ¿ë±â°ü¿ë °ª
-	$mem_id			// È¸¿ø¹øÈ£
-	$mem_nm			// ÀÌ¿ë±â°ü¿ë È¸¿øÁ¤º¸
-	$auth_key		// È¿¼ºÀÎÁõkey
+	$result_yn		// ì²˜ë¦¬ ì„±ê³µì‹¤íŒ¨ ì—¬ë¶€['Y':ì„±ê³µ/'N':ì‹¤íŒ¨]
+	$result_msg		// ì²˜ë¦¬ë©”ì‹œì§€
+	$mx_issue_no	// ì²˜ë¦¬ë²ˆí˜¸
+	$mx_issue_date	// ì²˜ë¦¬ì¼ì
+	$ret_param2			// ì´ìš©ê¸°ê´€ìš© ê°’
+	$mem_id			// íšŒì›ë²ˆí˜¸
+	$mem_nm			// ì´ìš©ê¸°ê´€ìš© íšŒì›ì •ë³´
+	$auth_key		// íš¨ì„±ì¸ì¦key
 
 	*/
 
@@ -46,10 +46,10 @@
 		opener.document.ssignform.action = "<?=$RESULTPATH?>";
 		opener.document.ssignform.method = "post";
 		opener.document.ssignform.target = "_self";
-		opener.document.ssignform.submit(); //Àü¼Û
+		opener.document.ssignform.submit(); //ì „ì†¡
 
 <? if($CLOSETYPE=="OFF")  {   ?>
-		self.close(); //Ã¢´İ±â!
+		self.close(); //ì°½ë‹«ê¸°!
 	}
 <? } ?>
 

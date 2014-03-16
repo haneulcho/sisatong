@@ -1,39 +1,39 @@
 <?
 	/*
-	DBPATH ÆäÀÌÁö´Â ÇØÁö°¡ ¿Ï·áµÇ¸é, °á°ú¸¦ Àü¼Û ¹Þ¾Æ¼­ ÀÌ¿ë±â°üÀÇ DB¿¡ ÀúÀå ÇÕ´Ï´Ù.
-	ÇØÁö ¿Ï·á¿Í µ¿½Ã¿¡ DBPATH·Î °á°ú¸¦ Àü¼ÛÇÏ°í, DBPATH·Î ºÎÅÍ return ¸Þ½ÃÁö°¡
-	È®ÀÎÀÌ µÇ¸é, Ã³¸® ÁøÇà ÁßÀÌ´ø ÇØÁö Ã¢Àº ÃÖÁ¾ ¿Ï·á ÆäÀÌÁö¸¦ Ãâ·ÂÇÕ´Ï´Ù.
-	µû¶ó¼­, DBPATH°¡ ºñ Á¤»óÀûÀÎ °æ¿ì¿¡´Â Áö¿¬ÀÇ ¿øÀÎÀÌ µÉ ¼ö ÀÖ½À´Ï´Ù.
+	DBPATH íŽ˜ì´ì§€ëŠ” í•´ì§€ê°€ ì™„ë£Œë˜ë©´, ê²°ê³¼ë¥¼ ì „ì†¡ ë°›ì•„ì„œ ì´ìš©ê¸°ê´€ì˜ DBì— ì €ìž¥ í•©ë‹ˆë‹¤.
+	í•´ì§€ ì™„ë£Œì™€ ë™ì‹œì— DBPATHë¡œ ê²°ê³¼ë¥¼ ì „ì†¡í•˜ê³ , DBPATHë¡œ ë¶€í„° return ë©”ì‹œì§€ê°€
+	í™•ì¸ì´ ë˜ë©´, ì²˜ë¦¬ ì§„í–‰ ì¤‘ì´ë˜ í•´ì§€ ì°½ì€ ìµœì¢… ì™„ë£Œ íŽ˜ì´ì§€ë¥¼ ì¶œë ¥í•©ë‹ˆë‹¤.
+	ë”°ë¼ì„œ, DBPATHê°€ ë¹„ ì •ìƒì ì¸ ê²½ìš°ì—ëŠ” ì§€ì—°ì˜ ì›ì¸ì´ ë  ìˆ˜ ìžˆìŠµë‹ˆë‹¤.
 	*/
 
-	if (phpversion() >= 4.2) { // POST, GET ¹æ½Ä¿¡ °ü°è ¾øÀÌ »ç¿ëÇÏ±â À§ÇØ¼­
+	if (phpversion() >= 4.2) { // POST, GET ë°©ì‹ì— ê´€ê³„ ì—†ì´ ì‚¬ìš©í•˜ê¸° ìœ„í•´ì„œ
 		if (count($_POST)) extract($_POST, EXTR_PREFIX_SAME, 'VARS_');
 		if (count($_GET)) extract($_GET, EXTR_PREFIX_SAME, '_GET');
 	}
 
 	/*
-	¾Æ·¡¿Í °°Àº °ªÀÌ POST ¹æ½ÄÀ¸·Î Àü¼ÛµË´Ï´Ù. ÀÚ¼¼ÇÑ ¼³¸íÀº ¸Å´º¾óÀ» Âü°í¹Ù¶ø´Ï´Ù.
+	ì•„ëž˜ì™€ ê°™ì€ ê°’ì´ POST ë°©ì‹ìœ¼ë¡œ ì „ì†¡ë©ë‹ˆë‹¤. ìžì„¸í•œ ì„¤ëª…ì€ ë§¤ë‰´ì–¼ì„ ì°¸ê³ ë°”ëžë‹ˆë‹¤.
 
-	$result_yn		// Ã³¸® ¼º°ø½ÇÆÐ ¿©ºÎ['Y':¼º°ø/'N':½ÇÆÐ]
-	$result_msg		// Ã³¸®¸Þ½ÃÁö
-	$mx_issue_no	// Ã³¸®¹øÈ£
-	$mx_issue_date	// Ã³¸®ÀÏÀÚ
-	$ret_param			// ÀÌ¿ë±â°ü¿ë °ª
-	$mem_id			// È¸¿ø¹øÈ£
-	$mem_nm			// ÀÌ¿ë±â°ü¿ë È¸¿øÁ¤º¸
-	$mx_hash		// ÇØ½¬°ª
-	$auth_key		// È¿¼ºÀÎÁõkey
+	$result_yn		// ì²˜ë¦¬ ì„±ê³µì‹¤íŒ¨ ì—¬ë¶€['Y':ì„±ê³µ/'N':ì‹¤íŒ¨]
+	$result_msg		// ì²˜ë¦¬ë©”ì‹œì§€
+	$mx_issue_no	// ì²˜ë¦¬ë²ˆí˜¸
+	$mx_issue_date	// ì²˜ë¦¬ì¼ìž
+	$ret_param			// ì´ìš©ê¸°ê´€ìš© ê°’
+	$mem_id			// íšŒì›ë²ˆí˜¸
+	$mem_nm			// ì´ìš©ê¸°ê´€ìš© íšŒì›ì •ë³´
+	$mx_hash		// í•´ì‰¬ê°’
+	$auth_key		// íš¨ì„±ì¸ì¦key
 
 	*/
 
 	/*
-	Ã³¸® Á¤º¸ÀÇ À§/º¯Á¶ ¿©ºÎ¸¦ È®ÀÎÇÏ±â À§ÇØ,
-	ÁÖ¿ä Ã³¸® Á¤º¸¸¦ MD5 ¾ÏÈ£È­ ¾Ë°í¸®ÁòÀ¸·Î HASH Ã³¸®ÇÑ mx_hash °ªÀ» ¹Þ¾Æ
-	µ¿ÀÏÇÑ ±ÔÄ¢À¸·Î DBPATH¿¡¼­ »ý¼ºÇÑ °ª(output)°ú ºñ±³ÇÕ´Ï´Ù.
+	ì²˜ë¦¬ ì •ë³´ì˜ ìœ„/ë³€ì¡° ì—¬ë¶€ë¥¼ í™•ì¸í•˜ê¸° ìœ„í•´,
+	ì£¼ìš” ì²˜ë¦¬ ì •ë³´ë¥¼ MD5 ì•”í˜¸í™” ì•Œê³ ë¦¬ì¦˜ìœ¼ë¡œ HASH ì²˜ë¦¬í•œ mx_hash ê°’ì„ ë°›ì•„
+	ë™ì¼í•œ ê·œì¹™ìœ¼ë¡œ DBPATHì—ì„œ ìƒì„±í•œ ê°’(output)ê³¼ ë¹„êµí•©ë‹ˆë‹¤.
 	*/
 
 	/*
-	MD5 ¾Ë°í¸®ÁòÀ» ÀÌ¿ëÇÑ HASH °ª »ý¼º
+	MD5 ì•Œê³ ë¦¬ì¦˜ì„ ì´ìš©í•œ HASH ê°’ ìƒì„±
 	*/
 	$output = md5("F&" . $mem_id . $mx_issue_no . $mx_issue_date);
 
@@ -41,28 +41,28 @@
 	$returnMsg = "ACK=400FAIL";
 
 	/*
-	mx_hash °ª°ú output »ý¼º °ªÀ» ºñ±³ÇØ¼­ ÀÏÄ¡ÇÏ´Â °æ¿ì¿¡¸¸ °á°ú ÀúÀå
+	mx_hash ê°’ê³¼ output ìƒì„± ê°’ì„ ë¹„êµí•´ì„œ ì¼ì¹˜í•˜ëŠ” ê²½ìš°ì—ë§Œ ê²°ê³¼ ì €ìž¥
 	*/
-	if($mx_hash!=null && $mx_hash==$output) {  // ÀÏÄ¡ÇÏ´Â °æ¿ì
-		if($result_yn=="Y") {  // Ã³¸® ¼º°øÀÌ¸é
+	if($mx_hash!=null && $mx_hash==$output) {  // ì¼ì¹˜í•˜ëŠ” ê²½ìš°
+		if($result_yn=="Y") {  // ì²˜ë¦¬ ì„±ê³µì´ë©´
 			/*
-			ÀÌ ºÎºÐ¿¡¼­ DB¿¡ °á°ú¸¦ ÀúÀåÇÏ´Â ¼Ò½º ÄÚµù ÇÊ¿ä
-			¿¹) isOK = (DB ¾÷µ¥ÀÌÆ® °á°ú);
+			ì´ ë¶€ë¶„ì—ì„œ DBì— ê²°ê³¼ë¥¼ ì €ìž¥í•˜ëŠ” ì†ŒìŠ¤ ì½”ë”© í•„ìš”
+			ì˜ˆ) isOK = (DB ì—…ë°ì´íŠ¸ ê²°ê³¼);
 			*/
 			//
 			$isOK=1;
 
-			if($isOK==1) $returnMsg = "ACK=200OKOK";   // DB ÀúÀå ¼º°øÀÌ¸é
-			else $returnMsg = "ACK=400FAIL";  // DB ÀúÀå ½ÇÆÐÀÌ¸é
-		} else {  // °áÁ¦ ½ÇÆÐÀÎ °æ¿ì
+			if($isOK==1) $returnMsg = "ACK=200OKOK";   // DB ì €ìž¥ ì„±ê³µì´ë©´
+			else $returnMsg = "ACK=400FAIL";  // DB ì €ìž¥ ì‹¤íŒ¨ì´ë©´
+		} else {  // ê²°ì œ ì‹¤íŒ¨ì¸ ê²½ìš°
 			/*
-			ÀÌ ºÎºÐ¿¡¼­ DB¿¡ °á°ú¸¦ ÀúÀåÇÏ´Â ¼Ò½º ÄÚµù ÇÊ¿ä (½ÇÆÐ ³»¿ë ±â·Ï ÇÊ¿ä½Ã)
+			ì´ ë¶€ë¶„ì—ì„œ DBì— ê²°ê³¼ë¥¼ ì €ìž¥í•˜ëŠ” ì†ŒìŠ¤ ì½”ë”© í•„ìš” (ì‹¤íŒ¨ ë‚´ìš© ê¸°ë¡ í•„ìš”ì‹œ)
 			*/
 			//
-			if($isOK==1) $returnMsg = "ACK=200OKOK";   // DB ÀúÀå ¼º°øÀÌ¸é
-			else $returnMsg = "ACK=400FAIL";  // DB ÀúÀå ½ÇÆÐÀÌ¸é
+			if($isOK==1) $returnMsg = "ACK=200OKOK";   // DB ì €ìž¥ ì„±ê³µì´ë©´
+			else $returnMsg = "ACK=400FAIL";  // DB ì €ìž¥ ì‹¤íŒ¨ì´ë©´
 		}
-	} else {  // °áÁ¦ Á¤º¸°¡ ÀÏÄ¡ÇÏÁö ¾Ê´Â °æ¿ì : µ¥ÀÌÅ¸ Á¶ÀÛÀÇ °¡´É¼ºÀÌ ÀÖÀ¸¹Ç·Î, °áÁ¦ Ãë¼Ò
+	} else {  // ê²°ì œ ì •ë³´ê°€ ì¼ì¹˜í•˜ì§€ ì•ŠëŠ” ê²½ìš° : ë°ì´íƒ€ ì¡°ìž‘ì˜ ê°€ëŠ¥ì„±ì´ ìžˆìœ¼ë¯€ë¡œ, ê²°ì œ ì·¨ì†Œ
 		$returnMsg = "ACK=400FAIL";
 	}
 
