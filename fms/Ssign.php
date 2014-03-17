@@ -1,11 +1,3 @@
-<?php
-	if (!$_SESSION['is_logged']) {
-		header("Location: http://sisatong.net");
-	} else {
-		$logged_info = Context::get('logged_info');
-	}
-?>
-
 <load target="style.css" type="text/css" />
 <script src="http://ap.efnc.co.kr/fnpay/ssign/comm/ssign.js" charset="euc-kr"></script>
 
@@ -258,13 +250,6 @@ $(document).ready(function() {
 				document.ssignform.receipt_flag.value = 'N';
 				document.ssignform.receipt_key.value = '';
 			}
-
-			console.log(document.ssignform.mem_nm.value);
-			console.log(document.ssignform.mem_tel.value);
-			console.log(document.ssignform.pay_amount.value);
-			console.log(document.ssignform.pay_dt.value);
-			console.log(document.ssignform.receipt_flag.value);
-			console.log(document.ssignform.receipt_key.value);
 
 			var ssignform = document.getElementById('ssignform');  //FORM
 			SSIGN_REQUEST(ssignform); //창 연동 스크립트
