@@ -250,7 +250,7 @@ $(document).ready(function() {
 			}
 			document.ssignform.acct_nm.value = $.trim($input_bankname.val()); //이름
 			document.ssignform.mem_tel.value = $.trim($input_mem_tel.val()); //핸드폰번호
-			document.ssignform.mem_text.value = $.trim($input_email.val()); //이메일
+			document.ssignform.mem_text.value = $.trim($input_email.val().replace('@', '\\')); //이메일
 			document.ssignform.pay_dt.value = $('#is_pay_date_custom').is(':checked')? $.trim($input_pay_custom_date.val()): $.trim($('pay_d_date:checked').val()); // 이체일
 			document.ssignform.pay_amount.value = $('#is_pay_custom').is(':checked')? $.trim($input_pay_custom_amount.val()): $.trim($('.pay_d_amount:checked').val()); // 구독료
 			if ($('#is_recv_recipt_true').is(':checked')) {
