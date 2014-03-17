@@ -35,7 +35,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title> 시사통 - 구독(CMS 자동이체) 신청 결과</title>
-<link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body>
 <table width="475" height="400" border="0" cellpadding="0" cellspacing="0">
@@ -61,39 +60,39 @@
 
 <tr> 
 <td width="83" height="30"><span class="theadt">이름</span></td>
-<td width="378" colspan="3"><?=$mem_nm!=null ? $mem_nm : "" ?></td>
+<td width="378" colspan="3"><?=$mem_nm!=null ? iconv('euc-kr', 'utf-8', $mem_nm) : "" ?></td>
 </tr>
 
 <tr> 
 <td width="83" height="30"><span class="theadt">처리번호</span></td>
-<td width="378" colspan="3"><?=$mx_issue_no!=null ? $mx_issue_no : "" ?></td>
+<td width="378" colspan="3"><?=$mx_issue_no!=null ? iconv('euc-kr', 'utf-8', $mx_issue_no): "" ?></td>
 </tr>
 
 <tr> 
 <td width="83" height="30"><span class="theadt">동의일자</span></td>
-<td width="378" colspan="3"><?=$mx_issue_date!=null ? $mx_issue_date : "" ?></td>
+<td width="378" colspan="3"><?=$mx_issue_date!=null ? iconv('euc-kr', 'utf-8', $mx_issue_date) : "" ?></td>
 </tr>
 
 <tr> 
 <td width="83" height="30"><span class="theadt">결과</span></td>
-<td width="378" colspan="3"><?=$result_yn!=null ? $result_yn : "" ?></td>
+<td width="378" colspan="3"><?=$result_yn!=null ? iconv('euc-kr', 'utf-8', $result_yn) : "" ?></td>
 </tr>
 
 <tr> 
 <td width="83" height="30"><span class="theadt">결과메시지</span></td>
-<td width="378" colspan="3"><?=$result_msg!=null ? $result_msg : "" ?></td>
+<td width="378" colspan="3"><?=$result_msg!=null ? iconv('euc-kr', 'utf-8', $result_msg) : "" ?></td>
 </tr>
 
 <tr> 
 <td width="83" height="30"><span class="theadt">인증키</span></td>
-<td width="378" colspan="3"><?=$auth_key!=null ? $auth_key : "" ?></td>
+<td width="378" colspan="3"><?=$auth_key!=null ? iconv('euc-kr', 'utf-8', $auth_key) : "" ?></td>
 </tr>
 </table>
 		</td>
 	</tr>
 	<tr>
 		<td style="width:420px; padding-top:16px; border:none;">
-        <p align="center"><p align="center"><input type='button' class="okbtn" value='창닫기' onClick="window.open('','_self').close();"></p></p></td>
+        <p align="center"><p align="center"><input type='button' class="okbtn" value='시사통으로 가기' onClick="location.replace('http://sisatong.net');"></p></p></td>
 	</tr>
 </table>
 </body>

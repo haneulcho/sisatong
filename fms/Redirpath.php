@@ -65,7 +65,10 @@
 <? if($CLOSETYPE=="OFF")  {   ?>
 		self.close(); //창닫기!
 	}
+<? } else {?>
+	}
 <? } ?>
+
 
 	proceed();
 

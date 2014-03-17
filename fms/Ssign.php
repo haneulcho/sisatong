@@ -118,11 +118,11 @@
 	<!-- 회원정보용 parameter 설정 시작 -->
 	<input type="hidden" name="mem_id" value="<?php echo $logged_info? $logged_info->member_srl: 'not_member'; ?>" />		<!-- 회원번호 (업체회원번호 자동부여 시, 무시됨) -->
 	<input type="hidden" name="auth_key" value="0" />				<!-- 효성발행 인증 Key, 수정/해지 시 필수-->
-	<input type="hidden" name="mem_nm" value="<?php echo $logged_info? $logged_info->nick_name: '비회원'; ?>" />		<!-- 회원명, 이용기관용 회원정보 -->
+	<input type="hidden" name="mem_nm" value="" />		<!-- 회원명, 이용기관용 회원정보 -->
 	<!-- 공통 parameter 설정 끝 -->
 
 	<!-- 요청 paremeter, 옵션 -->
-	<input type="hidden" name="pay_dt" value="" />		<!-- 약정일:01일~30일 (생략시 01일) -->
+	<input type="hidden" name="pay_dt" value="" />			<!-- 약정일:01일~30일 (생략시 01일) -->
 	<input type="hidden" name="pay_start" value="" />		<!-- 결제시작일 (생략시 오늘) -->
 	<input type="hidden" name="pay_end" value="" />			<!-- 결제종료일 (생략시 99991231) -->
 	<input type="hidden" name="pay_amount" value="" />		<!-- 회원기본결제금액 (생략시 0원) -->
@@ -133,15 +133,12 @@
 	<input type="hidden" name="receipt_key" value="" />		<!-- 현금영수증정보 -->
 	<input type="hidden" name="mem_reg_flag" value="Y" />	<!-- 결제회원 자동등록(Y, N) -->
 	<input type="hidden" name="join_cert" value="N" />		<!-- 동의대행 접근(Y, N) -->
-	<input type="hidden" name="acct_nm" value="" />			<!-- 예금주 이름 -->
-
-<!-- 회원정보용 parameter 설정 끝 -->
+	<!-- 회원정보용 parameter 설정 끝 -->
 </form>
 
 <script>
 (function($){
 $(document).ready(function() {	
-	// var sisatongCharset = document.charset;  //시사통 utf-8에서 효성 euc-kr로 넘기기
 
 	$('.pay_d_amount').change(function() {
 		if ($('#is_pay_custom').attr('checked')) {
@@ -248,10 +245,11 @@ $(document).ready(function() {
 				$input_receipt_info.focus();
 				return;
 			}
-			document.ssignform.acct_nm.value = $.trim($input_bankname.val()); //이름
+
+			document.ssignform.mem_nm.value = $.trim($input_bankname.val()); //이름
 			document.ssignform.mem_tel.value = $.trim($input_mem_tel.val()); //핸드폰번호
 			document.ssignform.mem_text.value = $.trim($input_email.val().replace('@', '\\')); //이메일
-			document.ssignform.pay_dt.value = $('#is_pay_date_custom').is(':checked')? $.trim($input_pay_custom_date.val()): $.trim($('pay_d_date:checked').val()); // 이체일
+			document.ssignform.pay_dt.value = $('#is_pay_date_custom').is(':checked')? $.trim($input_pay_custom_date.val()): $.trim($('.pay_d_date:checked').val()); // 이체일
 			document.ssignform.pay_amount.value = $('#is_pay_custom').is(':checked')? $.trim($input_pay_custom_amount.val()): $.trim($('.pay_d_amount:checked').val()); // 구독료
 			if ($('#is_recv_recipt_true').is(':checked')) {
 				document.ssignform.receipt_flag.value = 'Y';
@@ -261,7 +259,7 @@ $(document).ready(function() {
 				document.ssignform.receipt_key.value = '';
 			}
 
-			console.log(document.ssignform.acct_nm.value);
+			console.log(document.ssignform.mem_nm.value);
 			console.log(document.ssignform.mem_tel.value);
 			console.log(document.ssignform.pay_amount.value);
 			console.log(document.ssignform.pay_dt.value);
@@ -270,7 +268,6 @@ $(document).ready(function() {
 
 			var ssignform = document.getElementById('ssignform');  //FORM
 			SSIGN_REQUEST(ssignform); //창 연동 스크립트
-			// document.charset = sisatongCharset; //form 넘기고 나서는 다시 utf-8로 돌아오게
 		}
 	});
 });
