@@ -43,9 +43,17 @@
 		<var name="BANNER_LINK_URL" type="text">
 			<title xml:lang="ko">상단 배너 클릭시 이동할 주소</title>
 		</var>
-		<var name="FOOTER" type="textarea">
-			<title xml:lang="ko">사이트 풋터 문자</title>
-			<title xml:lang="en">Site footer text</title>
+		<var name="SIDE_BANNER1_IMAGE_SRC" type="image">
+			<title xml:lang="ko">우측 상단 배너</title>
+		</var>
+		<var name="SIDE_BANNER1_IMAGE_MAP" type="text">
+			<title xml:lang="ko">우측 상단 배너 이미지맵 코드</title>
+		</var>
+		<var name="SIDE_BANNER2_IMAGE_SRC" type="image">
+			<title xml:lang="ko">우측 하단 배너</title>
+		</var>
+		<var name="SIDE_BANNER2_LINK_URL" type="text">
+			<title xml:lang="ko">우측 하단 배너 클릭시 이동할 주소</title>
 		</var>
 	</extra_vars>
 </layout>

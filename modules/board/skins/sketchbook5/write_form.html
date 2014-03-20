@@ -41,7 +41,7 @@ var msg_kr_address_etc = '{$lang->msg_kr_address_etc}';
 	</table>
 
 	<!-- 20140304 글쓴이 정보 입력 -->
-	<table cond="$mi->module_srl == 2056 && $grant->manager" class="exForm bd_tb">
+	<table cond="($mi->module_srl == 2056 || $mi->module_srl == 6811) && $grant->manager" class="exForm bd_tb">
 		{@
 		$logged_info = Context::get('logged_info');
 		}

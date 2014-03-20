@@ -8,13 +8,6 @@
 			<img src="images/title.jpg" alt="시사통 구독 신청">
 		</td>
 	</tr>
-	<?php if (!$logged_info) { ?>
-	<tr>
-		<td width="650" height="50" style="width:420px; padding:0; border-bottom:none;">
-			<a title="시사통 회원가입하러 가기" href="http://sisatong.net/index.php?act=dispMemberSignUpForm" target="_blank">시사통 회원가입하러 가기</a>
-		</td>
-	</tr>
-	<?php } ?>
 	<tr>
 		<td width="650" style="height:240px; padding-top:1px; padding-left:12px; border:none;">
 			<table width="636" style="margin-left:25px;" border="0" cellpadding="0" cellspacing="0">
@@ -66,7 +59,7 @@
 					<td width="132" height="30"><span class="theadt">현금영수증 발급</span></td>
 					<td colspan="3">
 						<input type="radio" name="receipt" value="false" class="bnone is_recv_receipt">안함 
-						<input type="radio" name="receipt" value="true" class="bnone is_recv_receipt" id="is_recv_recipt_true">발급(-제외, 숫자만) 
+						<input type="radio" name="receipt" value="true" class="bnone is_recv_receipt" id="is_recv_receipt_true">발급(-제외, 숫자만) 
 						<input name="receipt_info" type="text" size="15" maxlength="20" id="receipt_info" disabled>
 					</td>
 				</tr>
@@ -78,6 +71,13 @@
 		<td height="83" style="width:420px; padding-top:6px; border:none;">
         <p align="center"><input id="submit" type='button' class="okbtn" value="시사통 구독 신청하기"></p></td>
 	</tr>
+	<?php if (!$logged_info) { ?>
+	<tr>
+		<td width="650" height="50" style="width:420px; padding:0; border-bottom:none;">
+			<a title="시사통 회원가입하러 가기" href="http://sisatong.net/index.php?act=dispMemberSignUpForm" target="_blank">시사통 회원가입하러 가기</a>
+		</td>
+	</tr>
+	<?php } ?>
 </table>
 
 <!--효성FMS-->
@@ -149,7 +149,7 @@ $(document).ready(function() {
 	});
 
 	$('.is_recv_receipt').change(function() {
-		if ($('#is_recv_recipt_true').attr('checked')) {
+		if ($('#is_recv_receipt_true').attr('checked')) {
 			$('#receipt_info').removeAttr('disabled');
 		} else {
 			$('#receipt_info').attr('disabled', 'disabled');
@@ -227,12 +227,12 @@ $(document).ready(function() {
 				$('.is_recv_receipt').focus();
 				return;
 			}
-			if ($('#is_recv_recipt_true').is(':checked') && $.trim($input_receipt_info.val())) {
+			if ($('#is_recv_receipt_true').is(':checked') && $.trim($input_receipt_info.val()) == '') {
 				alert('현금영수증 발급 번호(휴대폰 또는 발급카드)는 숫자만 입력하실 수 있습니다.');
 				$input_receipt_info.focus();
 				return;
 			}
-			if ($('#is_recv_recipt_true').is(':checked') && isNaN($.trim($input_receipt_info.val()))) {
+			if ($('#is_recv_receipt_true').is(':checked') && isNaN($.trim($input_receipt_info.val()))) {
 				alert('현금영수증 발급 번호(휴대폰 또는 발급카드)는 숫자만 입력하실 수 있습니다.');
 				$input_receipt_info.focus();
 				return;
@@ -243,13 +243,15 @@ $(document).ready(function() {
 			document.ssignform.mem_text.value = $.trim($input_email.val().replace('@', '\\')); //이메일
 			document.ssignform.pay_dt.value = $('#is_pay_date_custom').is(':checked')? $.trim($input_pay_custom_date.val()): $.trim($('.pay_d_date:checked').val()); // 이체일
 			document.ssignform.pay_amount.value = $('#is_pay_custom').is(':checked')? $.trim($input_pay_custom_amount.val()): $.trim($('.pay_d_amount:checked').val()); // 구독료
-			if ($('#is_recv_recipt_true').is(':checked')) {
+			if ($('#is_recv_receipt_true').is(':checked')) {
 				document.ssignform.receipt_flag.value = 'Y';
 				document.ssignform.receipt_key.value = $.trim($input_receipt_info.val());
 			} else {
 				document.ssignform.receipt_flag.value = 'N';
 				document.ssignform.receipt_key.value = '';
 			}
+
+			console.log(document.ssignform.receipt_key.value);
 
 			var ssignform = document.getElementById('ssignform');  //FORM
 			SSIGN_REQUEST(ssignform); //창 연동 스크립트
