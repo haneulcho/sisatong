@@ -111,18 +111,24 @@
 	<!--// Body -->
 	<div class="rd_body clear">
 		<!-- 20140304 글쓴이 정보 출력 -->
-		<table cond="$mi->module_srl == 2056 && (!$oDocument->isSecret() || $oDocument->isGranted())" class="et_vars bd_tb">
+		<table cond="($mi->module_srl == 2056 || $mi->module_srl == 6811) && (!$oDocument->isSecret() || $oDocument->isGranted())" class="et_vars bd_tb">
 			<caption class="blind"></caption>
 			{@
 			$oMemberModel = &getModel('member');
 			$member_info = $oMemberModel->getMemberInfoByMemberSrl($oDocument->get('member_srl'));
 			}
 			<tr class="bg1">
-				<th scope="row">구독자명</th>
+				<th scope="row">
+					<block cond="$mi->module_srl == 2056">구독자명</block>
+					<block cond="$mi->module_srl == 6811">참가자명</block>
+				</th>
 				<td>{$member_info->supporter_name}</td>
 			</tr>
 			<tr class="bg0">
-				<th scope="row">구독 회원 연락처</th>
+				<th scope="row">
+					<block cond="$mi->module_srl == 2056">구독 회원 연락처</block>
+					<block cond="$mi->module_srl == 6811">참가 회원 연락처</block>
+				</th>
 				<td>{$member_info->supporter_phone}</td>
 			</tr>
 		</table>
