@@ -40,15 +40,6 @@
 		<nav class="gnb" id="gnb">
 			<ul>
 				<li loop="$GNB->list=>$key1,$val1" class="active"|cond="$val1['selected']">
-					<block cond="$val1['url'] && $val1['url'] =='{$layout_info->RECENT_ARTICLE_MID}'">{@
-					$oModule = &getModel('module');
-					$moduleSrl= $oModule->getModuleSrlByMid($val1['url']); 
-					$args->module_srl = $moduleSrl;
-					$args->list_count = 1;
-					$args->order_type = 'asc';
-					$output = executeQuery('document.getDocumentList', $args);
-					$val1['href'] = $val1['href'].'/'.$output->data[$output->total_count]->document_srl;
-					}</block>
 					<a href="{$val1['href']}" target="_blank"|cond="$val1['open_window']=='Y'">{$val1['link']}</a>
 					<ul cond="$val1['list']">
 						<li loop="$val1['list']=>$key2,$val2" class="active"|cond="$val2['selected']">
