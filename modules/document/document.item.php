@@ -510,14 +510,15 @@ class documentItem extends Object
 	 * @param bool $add_content_info
 	 * @param bool $resource_realpath
 	 * @param bool $add_xe_content_class
+	 * @param bool $strip_tags: 20140226 allow tags to be removed
 	 * @return string
 	 */
-	function getTransContent($add_popup_menu = true, $add_content_info = true, $resource_realpath = false, $add_xe_content_class = true)
+	function getTransContent($add_popup_menu = true, $add_content_info = true, $resource_realpath = false, $add_xe_content_class = true, $strip_tags = false)
 	{
 		$oEditorController = getController('editor');
 
 		$content = $this->getContent($add_popup_menu, $add_content_info, $resource_realpath, $add_xe_content_class);
-		$content = $oEditorController->transComponent($content);
+		$content = $strip_tags? str_replace('&nbsp;', '', strip_tags($oEditorController->transComponent($content))): $oEditorController->transComponent($content);
 
 		return $content;
 	}

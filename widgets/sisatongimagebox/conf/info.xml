@@ -31,5 +31,15 @@
 			<name xml:lang="ko">썸네일 세로 크기</name>
 			<description xml:lang="ko">썸네일 세로 크기를 픽셀 단위로 정하세요.</description>
 		</var>
+		<var id="imagemap_id">
+			<type>text</type>
+			<name xml:lang="ko">이미지맵 설정시 이미지맵 고유 아이디</name>
+			<description xml:lang="ko">다른 이미지맵 아이디와 겹치지 않게 정하세요.</description>
+		</var>
+		<var id="imagemap_content">
+			<type>textarea</type>
+			<name xml:lang="ko">이미지맵 실제 태그</name>
+			<description xml:lang="ko">실제 이미지맵 태그를 입력하세요.</description>
+		</var>
 	</extra_vars>
 </widget>

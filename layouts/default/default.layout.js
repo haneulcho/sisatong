@@ -1,4 +1,15 @@
 jQuery(function($){
+// Search Form Toggle
+	var $searchBtn = $('#searchBtn');
+	var $searchField = $('#searchField');
+	$searchBtn.click(function(){
+		$searchField.slideToggle(200, function(){
+			if($searchField.is(':visible')){
+				$searchField.focus();
+			}
+		});
+	});
+
 // GNB
 	var $gnb = $('.gnb');
 	var $gnb_li = $gnb.find('>ul>li');

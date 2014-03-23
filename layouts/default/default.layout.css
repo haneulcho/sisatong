@@ -48,24 +48,25 @@ table{/* border-collapse:collapse;table-layout:fixed; */border-collapse:collapse
 .footer a:focus{text-decoration:underline}
 
 /* Login */
-.account{margin-right:15px !important}
+.account{margin-right:5px !important}
 
 /* Search */
+.header #searchBtn {float:right; margin:6px 5px 0 0;display:inline-block;*display:inline;zoom:1;font-size:12px;vertical-align:top;border-radius:2px;background:#484d51;border:1px solid #272b30;height:21px;line-height:20px;padding:0 10px;cursor:pointer;box-shadow:0 1px 0 #6d7174 inset;color:#FFF;}
 .header .search{display:inline-block;*display:inline;zoom:1;vertical-align:top;margin:0}
 .header .search>input{font-size:12px;vertical-align:top;border-radius:2px}
-.header .search>input[type="text"]{background:#e5e6e8;border:1px solid #dedede;height:21px;line-height:21px;padding:0 4px;margin:0 -6px 0 0;width:126px}
-.header .search>input[type="submit"]{background:#484d51;border:1px solid #272b30;height:23px;line-height:23px;padding:0 15px;margin:0;cursor:pointer;box-shadow:0 1px 0 #6d7174 inset;color:#FFF;}
+.header .search #searchField {display:none; position:absolute; z-index:2; width:178px; height:20px; top:30px; right:0; border:1px solid #d7d7d7; border-radius:3px; margin:0; padding:5px 10px; box-shadow:0 1px 0 #aaa;}
+.header .search>input[type="submit"]{display:none; position:absolute; z-index:3; top:35px;right:5px;background:#484d51;border:1px solid #272b30;height:23px;line-height:23px;padding:0 15px;margin:0;cursor:pointer;box-shadow:0 1px 0 #6d7174 inset;color:#FFF;}
 
 /* GNB */
-.gnb{position:relative;z-index:1;border-top:1px solid #e45d5e;border-bottom:2px solid #e91926;font-size:16px;height:36px;clear:both;font-family: "나눔고딕", "NanumGothic", "AppleGothic", sans-serif;}
+.gnb{position:relative;z-index:1;border-top:1px solid #e45d5e;border-bottom:2px solid #e91926;font-size:15px;height:36px;clear:both;font-family: "나눔고딕", "NanumGothic", "AppleGothic", sans-serif;}
 .gnb:before{content:"";display:block;width:100%;height:1px}
 .gnb ul{margin:0;padding:0;list-style:none}
 .gnb a{text-decoration:none;white-space:nowrap}
-.gnb>ul{position:absolute;top:32px;left:-1px;right:-1px;height:0}
+.gnb>ul{position:absolute;top:32px;left:-1px;right:-1px;height:0;width:600px;}
 .gnb.open>ul{height:auto;border-bottom:1px solid #333}
 .gnb>ul:after{content:"";display:block;clear:both}
 .gnb>ul>li{position:relative;top:-32px;float:left;margin:0 -1px -8px 0}
-.gnb>ul>li>a{display:block;line-height:12px;margin:12px 0;padding:0 20px;position:relative;color:#000;font-weight:bold;border-right:1px solid #eee;}
+.gnb>ul>li>a{display:block;line-height:12px;margin:12px 0;padding:0 18px;position:relative;color:#000;font-weight:bold;border-right:1px solid #eee;}
 .gnb>ul>li:last-child>a {border-right:none;}
 .gnb>ul>li>a:after{content:"";position:absolute;width:1px;height:100%;right:0;top:0;overflow:hidden}
 .gnb>ul>li.active>a,
@@ -95,6 +96,6 @@ table{/* border-collapse:collapse;table-layout:fixed; */border-collapse:collapse
 body {font-family: "돋움", dotum, Tahoma, Geneva; sans-serif}
 
 /* GNB */
-.account{float: right; margin-top: 4px !important;}
+.account{float: right; margin-top: 6px !important;}
 .account .info .user {color: #888}
 .header .search{float: right; margin-top: 5px;margin-right: 5px;}

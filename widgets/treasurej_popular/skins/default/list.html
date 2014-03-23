@@ -91,12 +91,12 @@
 		<ul>
 			<li loop="$widget_info->newest_comments=>$key,$val" class="newClear">
 				<a href="{$val->getPermanentUrl()}">
+					<!--@if($key < 3)-->
+					<span class="numtop{$key+1}">{$key+1}</span>
+					<!--@elseif($key > 2)-->
+					<span class="num{$key+1}">{$key+1}</span>
+					<!--@endif-->
 					<p class="tabs_text">
-						<!--@if($key < 3)-->
-						<span class="numtop{$key+1}">{$key+1}</span>
-						<!--@elseif($key > 2)-->
-						<span class="num{$key+1}">{$key+1}</span>
-						<!--@endif-->
 						<span class="text_content2">{$val->getSummary($widget_info->comment_cut_size)}</span>
 					</p>
 				</a>

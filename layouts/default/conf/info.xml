@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <layout version="0.2">
     <title xml:lang="ko">시사통 기본 레이아웃</title>
-    <description xml:lang="ko">시사통 사이트 기본 레이아웃.</description>
-    <version>0.1A</version>
-    <date>2014-02-19</date>
+    <description xml:lang="ko">시사통 사이트 기본 레이아웃</description>
+    <version>1.0</version>
+    <date>2014-03-20</date>
     <author email_address="mrrays@naver.com" link="http://krablog.com/">
         <name xml:lang="ko">이한결</name>
     </author>
@@ -43,9 +43,17 @@
 		<var name="BANNER_LINK_URL" type="text">
 			<title xml:lang="ko">상단 배너 클릭시 이동할 주소</title>
 		</var>
-		<var name="FOOTER" type="textarea">
-			<title xml:lang="ko">사이트 풋터 문자</title>
-			<title xml:lang="en">Site footer text</title>
+		<var name="SIDE_BANNER1_IMAGE_SRC" type="image">
+			<title xml:lang="ko">우측 상단 배너</title>
+		</var>
+		<var name="SIDE_BANNER1_IMAGE_MAP" type="textarea">
+			<title xml:lang="ko">우측 상단 배너 이미지맵 코드</title>
+		</var>
+		<var name="SIDE_BANNER2_IMAGE_SRC" type="image">
+			<title xml:lang="ko">우측 하단 배너</title>
+		</var>
+		<var name="SIDE_BANNER2_LINK_URL" type="text">
+			<title xml:lang="ko">우측 하단 배너 클릭시 이동할 주소</title>
 		</var>
 	</extra_vars>
 </layout>
