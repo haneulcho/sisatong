@@ -69,7 +69,11 @@
 	</tr>
 	<tr>
 		<td height="83" style="width:420px; padding-top:6px; border:none;">
-        <p align="center"><input id="submit" type='button' class="okbtn" value="시사통 구독 신청하기"></p></td>
+        <p align="center">
+        	<input id="submit" type='button' class="okbtn" value="전자동의 받기">
+        	<input id="subscription_manual" type='button' class="okbtn" value="... 또는 수동으로 전화확인 받기">
+        </p>
+        </td>
 	</tr>
 	<?php if (!$logged_info) { ?>
 	<tr>
@@ -156,7 +160,11 @@ $(document).ready(function() {
 		}
 	});
 
-	$('#submit').click(function () {
+	$('#subscription_manual').click(function() {
+		location.replace('http://sisatong.net/index.php?mid=subscription_manual&act=dispBoardWrite');
+	})
+
+	$('#submit').click(function() {
 		if (confirm('시사통 전자동의 서비스로 이동하시겠습니까?') == true) {
 			document.charset = 'EUC-KR';  //form 넘길 때는 euc-kr
 			var $input_bankname = $('#bankname');
