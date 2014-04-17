@@ -23,7 +23,7 @@
 
 			// 출력된 목록 수
 			$args->list_count = (int)$args->list_count;
-			if(!$args->list_count) $args->list_count = 3;
+			if(!$args->list_count) $args->list_count = 2;
 
 			if(!$args->main_subject_cut_size) $args->main_subject_cut_size = 50;
 			if(!$args->sub_subject_cut_size) $args->sub_subject_cut_size = 30;
