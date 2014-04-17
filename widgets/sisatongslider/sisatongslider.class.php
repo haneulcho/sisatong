@@ -32,7 +32,7 @@
 			if(!$args->thumbnail_type) $args->thumbnail_type = 'crop';
 
 			// 큰 썸네일 크기
-			if(!$args->thumbnail_width) $args->thumbnail_width = 598;
+			if(!$args->thumbnail_width) $args->thumbnail_width = 373;
 			if(!$args->thumbnail_height) $args->thumbnail_height = 298;
 
 			// 내부적으로 쓰이는 변수 설정
