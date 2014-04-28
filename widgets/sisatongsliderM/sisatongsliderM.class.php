@@ -168,6 +168,7 @@
 			$widget_info->list_count = $args->list_count;
 			$widget_info->subject_cut_size = $args->subject_cut_size;
 
+			$widget_info->no_image = $args->no_image;
 			$widget_info->thumbnail_type = $args->thumbnail_type;
 			$widget_info->thumbnail_width = $args->thumbnail_width;
 			$widget_info->thumbnail_height = $args->thumbnail_height;
