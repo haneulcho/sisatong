@@ -34,14 +34,20 @@
 				<title xml:lang="en">Use 'NanumGothic' web font</title>
 			</options>
 		</var>
-		<var name="RECENT_ARTICLE_MID" type="text">
-			<title xml:lang="ko">클릭시 최신 글이 나오게 할 게시판 mid</title>
-		</var>
 		<var name="BANNER_IMAGE_SRC" type="image">
 			<title xml:lang="ko">상단 배너</title>
 		</var>
 		<var name="BANNER_LINK_URL" type="text">
 			<title xml:lang="ko">상단 배너 클릭시 이동할 주소</title>
+		</var>
+		<var name="BANNER_LINK_TARGET" type="select">
+			<title xml:lang="ko">상단 배너 클릭시 새 창/현재 창 여부</title>
+			<options value="BLANK">
+				<title xml:lang="ko">새 창</title>
+			</options>
+			<options value="SELF">
+				<title xml:lang="ko">현재 창</title>
+			</options>
 		</var>
 		<var name="SIDE_BANNER1_IMAGE_SRC" type="image">
 			<title xml:lang="ko">우측 상단 배너</title>
@@ -54,6 +60,15 @@
 		</var>
 		<var name="SIDE_BANNER2_LINK_URL" type="text">
 			<title xml:lang="ko">우측 하단 배너 클릭시 이동할 주소</title>
+		</var>
+		<var name="SIDE_BANNER2_LINK_TARGET" type="select">
+			<title xml:lang="ko">우측 하단 배너 클릭시 새 창/현재 창 여부</title>
+			<options value="BLANK">
+				<title xml:lang="ko">새 창</title>
+			</options>
+			<options value="SELF">
+				<title xml:lang="ko">현재 창</title>
+			</options>
 		</var>
 	</extra_vars>
 </layout>
