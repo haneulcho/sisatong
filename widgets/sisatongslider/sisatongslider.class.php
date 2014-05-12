@@ -23,7 +23,7 @@
 
 			// 출력된 목록 수
 			$args->list_count = (int)$args->list_count;
-			if(!$args->list_count) $args->list_count = 3;
+			if(!$args->list_count) $args->list_count = 2;
 
 			if(!$args->main_subject_cut_size) $args->main_subject_cut_size = 50;
 			if(!$args->sub_subject_cut_size) $args->sub_subject_cut_size = 30;
@@ -32,7 +32,7 @@
 			if(!$args->thumbnail_type) $args->thumbnail_type = 'crop';
 
 			// 큰 썸네일 크기
-			if(!$args->thumbnail_width) $args->thumbnail_width = 598;
+			if(!$args->thumbnail_width) $args->thumbnail_width = 373;
 			if(!$args->thumbnail_height) $args->thumbnail_height = 298;
 
 			// 내부적으로 쓰이는 변수 설정

@@ -21,5 +21,10 @@
 			<name xml:lang="ko">대상 모듈</name>
 			<description xml:lang="ko">선택하신 모듈에 등록된 글을 대상으로 합니다.</description>
 		</var>
+		<var id="no_image">
+			<type>text</type>
+			<name xml:lang="ko">no image 경로</name>
+			<description xml:lang="ko">no image 경로를 정해주세요.</description>
+		</var>
 	</extra_vars>
 </widget>

@@ -7,7 +7,11 @@
 <div id="sisatong-slider_{$widget_info->widget_division}">
 	<a href="{$widget_info->sisatongsliderM_items[0]->getLink()}">
 	<div class="main_image">
+		<!--@if($widget_info->sisatongsliderM_items[0]->getThumbnail())-->
 		<img src="{$widget_info->sisatongsliderM_items[0]->getThumbnail()}" alt="{$widget_info->sisatongsliderM_items[0]->getTitle($widget_info->subject_cut_size)}" />
+		<!--@else-->
+		<img src="{$widget_info->no_image}" alt="{$widget_info->sisatongsliderM_items[0]->getTitle($widget_info->subject_cut_size)}" />
+		<!--@end-->
 		<div class="desc">
 			<div class="block">
 				<div class="block_header">{$widget_info->sisatongsliderM_items[0]->getTitle()}</div>

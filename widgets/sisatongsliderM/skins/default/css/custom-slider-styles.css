@@ -7,6 +7,11 @@
 	color: #fff;
 }
 
+.main_image img {
+	max-height: 100%;
+	margin-left: -10%;
+}
+
 .main_image .block_header {
 	margin: 0 0 5px; padding: 10px;
 	height: auto;

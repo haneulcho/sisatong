@@ -34,7 +34,7 @@
 
 		<div class="side">
 			<!-- UPPER BANNER -->
-			<a href="{$layout_info->BANNER_LINK_URL}" target="_blank"><img src="{$layout_info->BANNER_IMAGE_SRC}"></a>
+			<a href="{$layout_info->BANNER_LINK_URL}" target="_{$layout_info->BANNER_LINK_TARGET}"><img src="{$layout_info->BANNER_IMAGE_SRC}"></a>
 		</div>
 		<!-- GNB -->
 		<nav class="gnb" id="gnb">
@@ -72,18 +72,12 @@
 		<div class="rnb" id="rnb">
 
 			<block cond="$layout_info->SIDE_BANNER1_IMAGE_SRC">
-				<div class="sisatong_imagebox">
-					<img src="{$layout_info->SIDE_BANNER1_IMAGE_SRC}" alt="시사통 이미지 박스" width="198" height="300" usemap="#subscription">
+				<img src="{$layout_info->SIDE_BANNER1_IMAGE_SRC}" alt="시사통 이미지 박스" width="200" height="300" usemap="#subscription">
 					{$layout_info->SIDE_BANNER1_IMAGE_MAP}
-				</div>				
-			</block>
-
-			<block cond="!$layout_info->SIDE_BANNER1_IMAGE_SRC">
-				<img class="zbxe_widget_output" widget="sisatongimagebox" skin="default" thumbnail_url="http://sisatong.net/files/attach/filebox/181/002/2181.jpg" thumbnail_width="198" thumbnail_height="300" imagemap_id="subscription" imagemap_content="&lt;map name=&quot;subscription&quot;&gt;&lt;area shape=&quot;rect&quot; coords=&quot;16,262,93,290&quot; href=&quot;http://sisatong.net/subscription_cms&quot;&gt;&lt;area shape=&quot;rect&quot; coords=&quot;107,262,184,290&quot; href=&quot;http://sisatong.net/subscription&quot;&gt;&lt;/map&gt;"/>
 			</block>
 
 			<div class="sisatong_imagebox" cond="$layout_info->SIDE_BANNER2_IMAGE_SRC">
-				<a href="{$layout_info->SIDE_BANNER2_LINK_URL}">
+				<a href="{$layout_info->SIDE_BANNER2_LINK_URL}" target="_{$layout_info->SIDE_BANNER2_LINK_TARGET}">
 					<img src="{$layout_info->SIDE_BANNER2_IMAGE_SRC}">
 				</a>
 			</div>
