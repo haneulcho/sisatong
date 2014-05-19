@@ -34,6 +34,9 @@
 				<title xml:lang="en">Use 'NanumGothic' web font</title>
 			</options>
 		</var>
+		<var name="SUBSCRIBERS_COUNT" type="text">
+			<title xml:lang="ko">현재 구독회원 수</title>
+		</var>
 		<var name="BANNER_IMAGE_SRC" type="image">
 			<title xml:lang="ko">상단 배너</title>
 		</var>
