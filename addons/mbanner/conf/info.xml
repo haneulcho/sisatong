@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addon version="0.2">
+    <title xml:lang="ko">모바일 배너 애드온</title>
+    <title xml:lang="en">Mobile Banner Addon</title>
+    <description>
+        모바일에서 배너를 출력합니다.
+    </description>
+    <version>1.0</version>
+    <date>2012-12-12</date>
+	<link>http://xenon.teamatde.co.kr/</link>
+
+    <author email_address="hyung778@gmail.com" link="http://teamatde.co.kr/">
+        <name>LI-NA</name>
+    </author>
+   
+   	<extra_vars>
+		<var name="type_pri" type="select">
+            <title>배너 출력 타입</title>
+			<options value="a">
+				<title>하단 고정형 배너</title>
+			</options>
+			<options value="b">
+				<title>상단 고정형 배너</title>
+			</options>
+			<options value="c">
+				<title>상단 배너</title>
+			</options>
+			<options value="d">
+				<title>하단 배너</title>
+			</options>
+		</var>
+		<var name="type_con" type="select">
+            <title>배너 내용 타입</title>
+			<options value="a">
+				<title>이미지 링크</title>
+			</options>
+			<options value="b">
+				<title>HTML</title>
+			</options>
+			<options value="c">
+				<title>아이프레임</title>
+			</options>
+		</var>
+		<var name="type_ifr" type="select">
+            <title>아이프레임 스크롤 제어</title>
+			<options value="yes">
+				<title>예</title>
+			</options>
+			<options value="no">
+				<title>아니요</title>
+			</options>
+			<description>
+				아이프레임 주소가 같은 도메인일 경우에만 작동합니다.
+			</description>
+		</var>
+		<var name="type_clo" type="select">
+            <title>닫기 버튼을 출력할까요?</title>
+			<options value="yes">
+				<title>예</title>
+			</options>
+			<options value="no">
+				<title>아니요</title>
+			</options>
+		</var>
+		<var name="height" type="text">
+			<title>배너 높이</title>
+			<description>
+				px단위로 숫자만 입력해주세요.
+			</description>
+		</var>
+		<var name="content" type="text">
+			<title>배너 내용</title>
+			<description>
+				이미지이면 이미지 주소, HTML이면 HTML 소스, 아이프레임이면 목적지 주소를 입력해주세요.
+			</description>
+		</var>
+		<var name="link" type="text">
+			<title>이미지 링크</title>
+		</var>
+   	</extra_vars>
+</addon>

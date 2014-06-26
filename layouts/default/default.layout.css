@@ -84,7 +84,7 @@ table{/* border-collapse:collapse;table-layout:fixed; */border-collapse:collapse
 /* RNB */
 .body.sub .content{float:left;width:720px}
 .body.sub .rnb{float:right;width:200px;margin:0 0 40px 10px}
-.rnb .sisatong_imagebox {margin-bottom:12px; border: 1px solid #d6d6d6;}
+.rnb .sisatong_imagebox {margin-top: 13px; margin-bottom: 12px; border: 1px solid #d6d6d6;}
 
 /* CUSTOM STYLES */
 /* HELPER */

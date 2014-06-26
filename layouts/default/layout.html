@@ -29,7 +29,7 @@
 
 		<div class="date">
 			{@ $n_date = date('Y년 m월 d일') }
-			{$n_date}
+			{$n_date} 현재 구독회원: {$layout_info->SUBSCRIBERS_COUNT}명
 		</div>
 
 		<div class="side">
@@ -84,9 +84,17 @@
 
 			<block cond="!$layout_info->SIDE_BANNER2_IMAGE_SRC">
 				<img class="zbxe_widget_output" widget="treasurej_popular" skin="default" list_count="7" clist_count="7" comment_cut_size="20" tab_view="popular,newestd,newestc" option_view="title" module_srls="104,106,110,108,112" />
-			</block>			
+			</block>
 
-			<img class="zbxe_widget_output" widget="sisatongcastlist" skin="default" target_group="127" />
+			<div class="sisatong_imagebox" cond="$layout_info->SIDE_BANNER3_IMAGE_SRC">
+				<a href="{$layout_info->SIDE_BANNER3_LINK_URL}" target="_{$layout_info->SIDE_BANNER3_LINKT_TARGET}">
+					<img src="{$layout_info->SIDE_BANNER3_IMAGE_SRC}">
+				</a>
+			</div>
+
+			<block cond="!$layout_info->SIDE_BANNER3_IMAGE_SRC">
+				<img class="zbxe_widget_output" widget="sisatongcastlist" skin="default" target_group="127" />
+			</block>
 		</div>
 		<!-- /CONTENT -->
 	</div>
