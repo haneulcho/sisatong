@@ -17,15 +17,17 @@
   ga('send', 'pageview');
 </script>
 <div class="navbar">
-	<!-- SEARCH -->
-	<form action="{getUrl()}" method="get" class="search">
-		<input type="hidden" name="vid" value="{$vid}" />
-		<input type="hidden" name="mid" value="{$mid}" />
-		<input type="hidden" name="act" value="IS" />
-		<input type="text" name="is_keyword" value="{$is_keyword}" id="searchField" required title="{$lang->cmd_search}" />
-		<input type="submit" id="searchBtn" value="{$lang->cmd_search}" />
-	</form>
-	<img widget="login_info" skin="default" />
+	<div class="navbar-content">
+		<!-- SEARCH -->
+		<form action="{getUrl()}" method="get" class="search">
+			<input type="hidden" name="vid" value="{$vid}" />
+			<input type="hidden" name="mid" value="{$mid}" />
+			<input type="hidden" name="act" value="IS" />
+			<input type="text" name="is_keyword" value="{$is_keyword}" id="searchField" required title="{$lang->cmd_search}" />
+			<input type="submit" id="searchBtn" value="{$lang->cmd_search}" />
+		</form>
+		<img widget="login_info" skin="default" />
+	</div>
 </div>
 <div class="container">
 	<header class="header">
