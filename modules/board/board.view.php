@@ -965,8 +965,14 @@ class boardView extends board
 	 **/
 	function alertMessage($message)
 	{
-		$script =  sprintf('<script> jQuery(function(){ alert("%s"); } );</script>', Context::getLang($message));
-		Context::addHtmlFooter( $script );
+		// TODO: 굉장히 얄팍한 방법이지만 어쨌든 작동은 한다. alert 메시지 대신 바로 로그인 페이지로 이동시키는 방법
+		if ($message=='msg_not_permitted') {
+			$script =  sprintf('<script type="text/javascript"> xAddEventListener(window,"load", function() {  location.href="/?mid='.Context::get("mid").'&act=dispMemberInfo";});</script>', Context::getLang($message));
+			Context::addHtmlFooter( $script );
+		} else {
+			$script =  sprintf('<script> jQuery(function(){ alert("%s"); } );</script>', Context::getLang($message));
+			Context::addHtmlFooter( $script );
+		}
 	}
 
 }

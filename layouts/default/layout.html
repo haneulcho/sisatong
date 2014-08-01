@@ -16,6 +16,19 @@
   ga('create', 'UA-48788958-1', 'sisatong.net');
   ga('send', 'pageview');
 </script>
+<div class="navbar">
+	<div class="navbar-content">
+		<!-- SEARCH -->
+		<form action="{getUrl()}" method="get" class="search">
+			<input type="hidden" name="vid" value="{$vid}" />
+			<input type="hidden" name="mid" value="{$mid}" />
+			<input type="hidden" name="act" value="IS" />
+			<input type="text" name="is_keyword" value="{$is_keyword}" id="searchField" required title="{$lang->cmd_search}" />
+			<input type="submit" id="searchBtn" value="{$lang->cmd_search}" />
+		</form>
+		<img widget="login_info" skin="default" />
+	</div>
+</div>
 <div class="container">
 	<header class="header">
 		<h1>
@@ -48,18 +61,6 @@
 					</ul>
 				</li>
 			</ul>
-			
-			<!-- SEARCH -->
-			<span id="searchBtn">검색</span>
-			<form action="{getUrl()}" method="get" class="search">
-				<input type="hidden" name="vid" value="{$vid}" />
-				<input type="hidden" name="mid" value="{$mid}" />
-				<input type="hidden" name="act" value="IS" />
-				<input type="text" name="is_keyword" value="{$is_keyword}" id="searchField" required placeholder="검색어 입력 후 엔터" title="{$lang->cmd_search}" />
-				<input type="submit" value="{$lang->cmd_search}" />
-			</form>
-
-			<img widget="login_info" skin="default" />
 		</nav>
 		<!-- /GNB -->
 	</header>

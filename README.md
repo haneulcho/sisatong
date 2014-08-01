@@ -1,7 +1,10 @@
 # Sisatong based on XpressEngine
 
 ## Authors
-Lee Han Kyeol, Jo Ha Neul (from Ssultime)
+이한결
+
+## Contributers
+조하늘
 
 ## License
 Copyright (C) NAVER <http://www.navercorp.com>
