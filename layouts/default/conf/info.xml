@@ -88,5 +88,20 @@
 				<title xml:lang="ko">현재 창</title>
 			</options>
 		</var>
+		<var name="SIDE_BANNER4_IMAGE_SRC" type="image">
+			<title xml:lang="ko">우측 하단 세 번째 배너</title>
+		</var>
+		<var name="SIDE_BANNER4_LINK_URL" type="text">
+			<title xml:lang="ko">우측 하단 세 번째 배너 클릭시 이동할 주소</title>
+		</var>
+		<var name="SIDE_BANNER4_LINK_TARGET" type="select">
+			<title xml:lang="ko">우측 하단 세 번째 배너 클릭시 새 창/현재 창 여부</title>
+			<options value="BLANK">
+				<title xml:lang="ko">새 창</title>
+			</options>
+			<options value="SELF">
+				<title xml:lang="ko">현재 창</title>
+			</options>
+		</var>
 	</extra_vars>
 </layout>
