@@ -1,12 +1,14 @@
-# Sisatong based on XpressEngine
+#Sisatong based on XpressEngine
 
-## Authors
+[Sisatong.net](http://sisatong.net) is no longer maintained by this repository.
+
+##Authors
 이한결
 
-## Contributers
+##Contributers
 조하늘
 
-## License
+##License
 Copyright (C) NAVER <http://www.navercorp.com>
 
 This library is free software; you can redistribute it and/or
